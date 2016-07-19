@@ -23,14 +23,29 @@
 	    	<div class="cell colspan2">
 	    		<div class="tile-container">
 		    		<div class="cell">
-			        	<div class="tile" data-role="tile">Flare</div>
+			        	<div class="tile" data-role="tile" id="addbtn">Flare</div>
+                <!-- The Modal -->
+                <div id="plusModal" class="modal">
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">x</span>
+                      <h2>Modal Header</h2>
+                    </div>
+                    <div class="modal-body">
+                      <button id="addFlareBtn">flare</button>
+                      <button id="addWeiboBtn">weibo</button>
+                    </div>
+                    <div class="modal-footer">
+                      <h3>Modal Footer</h3>
+                    </div>
+                  </div>
+                </div>
 			        </div>
 			        <div class="cell">
 			        	<div class="tile" data-role="tile">Pokeman go</div>
 			        </div>
-			        
-			    
-	    		</div>		    	
+	    		</div>
 	    	</div>
 	    	<div class="cell colspan4">
 	    		<div class="tile tile-wide tile-wide-y" data-role="tile">
@@ -90,7 +105,7 @@
     				<div class="tile tile-big-x">
 	        		<div class="tile-content slide-right">
 	        			<div class="carousel" data-role="carousel">
-	        				<div class="slide"> 		        
+	        				<div class="slide">
 		        				<div class="image-container">
 						            <div class="frame">
 						                <img src="resources/background/1-socialMeadia.jpg">
@@ -100,7 +115,7 @@
 						            </div>
 							    </div>
 	        				</div>
-	        				<div class="slide"> 
+	        				<div class="slide">
 		        				<div class="image-container">
 						            <div class="frame">
 						                <img src="resources/background/2-az.jpg">
@@ -110,7 +125,7 @@
 						            </div>
 							    </div>
 	        				</div>
-	        				<div class="slide"> 
+	        				<div class="slide">
 		        				<div class="image-container">
 						            <div class="frame">
 						                <img src="resources/background/3-az.jpg">
@@ -126,8 +141,8 @@
 					            ... Over slide content here ...
 					        </div>
 	        		</div>
-	        	</div>		        			        
-	    	</div>	        
+	        	</div>
+	    	</div>
 	    </div>
 	</div>
 </body>
