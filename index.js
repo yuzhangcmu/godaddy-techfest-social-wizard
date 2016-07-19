@@ -6,7 +6,17 @@ $( document ).ready(function() {
     html: "review 1"
   });
 
-  $("#latest-reviews").append(appendContent);
+  // threadhold: -0.1
+  appendReview('0', "review 0", 0, 5);
 
   console.log( "end!" );
 });
+
+function appendReview(id, content, score, stars) {
+  const htmlContent = $('<div/>', {
+    className: "review" + id,
+    html: content
+  });
+
+  $("#latest-reviews").append(htmlContent);
+}
