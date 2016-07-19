@@ -4,21 +4,21 @@
     <link href="metro.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="metro.js"></script>
+		<script src="index.js"></script>
 </head>
 <body>
     <h1>GoDaddy</h1>
     <div class="grid">
-	    <div class="row cells7">
-	        <div class="cell colspan6">
-	        	<img src="resources/background/2-az.jpg" data-role="fitImage" data-format="square">	    
-	        </div>
-
-	        <div class="cell">
-	        	<div class="tile tile-big-y" data-role="tile">To dos</div>
-	        </div>
+	    <div class="row cells12">
+        <div class="cell colspan10">
+          <img src="resources/background/2-az.jpg" data-role="fitImage" data-format="square">
+        </div>
+        <div class="cell">
+          <div class="tile tile-big-y" data-role="tile">To dos</div>
+        </div>
 	    </div>
-	    <div class="row cells7">
-	    	<div class="cell">
+	    <div class="row cells12">
+	    	<div class="cell colspan2">
 	    		<div class="tile-container">
 		    		<div class="cell">
 			        	<div class="tile" data-role="tile">Flare</div>
@@ -30,27 +30,34 @@
 			    
 	    		</div>		    	
 	    	</div>
-	    	<div class="cell colspan2">
+	    	<div class="cell colspan4">
 	    		<div class="tile tile-wide tile-wide-y" data-role="tile">
 						<div class="tile-content slide-right">
 							<div class="slide">
-								<div>
-									Review 1
-								</div>
-								<div>
-									Review 2
+								<div id="latest-reviews">
+									<div>
+										review 1
+									</div>
+									<div>
+										review 2
+									</div>
 								</div>
 
 								<span class="tile-label">Latest social comments</span>
 								<span class="tile-badge">5</span>
 							</div>
 							<div class="slide-over">
-								... Over slide content here ...
+								<div>
+									Crisis reviews 1
+								</div>
+								<div>
+									Crisis reviews 2
+								</div>
 							</div>
 						</div>
 					</div>
 	    	</div>
-	    	<div class="cell colspan3">
+	    	<div class="cell colspan6">
     			<div class="tile-container">
 						<div class="tile">
 							Email
