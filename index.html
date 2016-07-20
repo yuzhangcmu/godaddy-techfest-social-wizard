@@ -15,6 +15,7 @@
 
 </head>
 <body>
+
 <h1>SocialWizard</h1>
 <div class="grid">
   <div id="upper" class="row cells12">
@@ -27,42 +28,7 @@
         <ul id="myList">
         </ul>
         <p>Add a todo.</p>
-        <input id="scriptBox" type="text" onkeypress="return myFunction(event)">
-        <script>
-          var x = 0;
-          localStorage.clear();
-          function deep_loop() {
-            var ul = document.getElementById("myList");
-            ul.innerHTML = '';
-            for (var key in localStorage) {
-              var node = document.createElement("LI");
-              var textnode = document.createTextNode(localStorage[key]);
-              node.appendChild(textnode);
-              node.id = key;
-
-              var btn = document.createElement("BUTTON");
-              btn.id = key;
-              btn.innerHTML = "X";
-              (function (index) {
-                btn.onclick = function () {
-                  localStorage.removeItem(index);
-                  deep_loop();
-                };
-              })(key);
-              node.appendChild(btn);
-              document.getElementById("myList").appendChild(node);
-            }
-          }
-          function myFunction(e) {
-            if (e.keyCode == 13) {
-              var tb = document.getElementById("scriptBox");
-              localStorage.setItem(x.toString(), tb.value);
-              x++;
-              document.getElementById("scriptBox").value = '';
-              deep_loop();
-            }
-          }
-        </script>
+        <input id="scriptBox" type="text">
       </div>
     </div>
   </div>
@@ -109,8 +75,8 @@
               <div id="latest-reviews-content">
               </div>
             </div>
-            <span class="tile-label bottom-label">Latest comments</span>
-            <span class="tile-badge">5</span>
+            <span class="tile-label">Latest comments</span>
+            <span class="tile-badge" id="review-tile-badge">0</span>
           </div>
         </div>
       </div>
