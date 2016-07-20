@@ -151,6 +151,40 @@ html {
   outline: none;
 }
 
+#myList{
+  list-style:none;
+  padding-left:15px;
+}
+
+#myList li{
+  text-align: left;
+}
+
+#to-dos .button{
+  height:15px;
+  width:15px;
+  min-width:15px;
+  background-color: rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  border:rgba(0,0,0,0);
+  font-size:3px;
+}
+
+#to-dos .button:hover{
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px white solid;
+}
+
+#to-dos span{
+  display:inline-block;
+  margin: 5px 10px;
+}
+
+#to-dos span.completed{
+  text-decoration: line-through;
+}
+
 #upper {
   display: flex;
   justify-content: center;
@@ -284,4 +318,9 @@ html {
 
 .bottom-label {
   margin-left: 10px;
+}
+
+.fix {
+  margin-bottom: 5px;
+  color: white;
 }
