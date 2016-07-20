@@ -153,3 +153,7 @@ html {
 #add-on {
   margin-top: 20px !important;
 }
+
+.flare {
+  background-image: url(img/flare_icon.png);
+}
