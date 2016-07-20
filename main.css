@@ -217,3 +217,12 @@ html {
 .review-highlight {
   color: pink;
 }
+
+.news-image {
+  max-width: 56%;
+  display: inline!important;
+}
+
+.news-title {
+  display: inline;
+}
