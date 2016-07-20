@@ -51,8 +51,6 @@ function loadNewReview() {
       console.log(data);
     }
   });
-
-
 }
 
 function showTime(){
@@ -133,8 +131,11 @@ function appendReview(review) {
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
-    //id: review.commentId,
     html: content
+  });
+
+  reviewComment.addEventListener('click', function() {
+    alert( "Handler for .click() called." );
   });
 
   $("#latest-reviews-content").append(htmlContent);
