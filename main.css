@@ -162,5 +162,9 @@ html {
 }
 
 .flare {
-  background-image: url(img/flare_icon.png);
+  cursor: pointer;
+}
+
+#pokemon {
+  margin-top: 20px;
 }
