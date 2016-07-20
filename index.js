@@ -101,14 +101,8 @@ function appendReview(review) {
     pic.setAttribute("height", "22");
     pic.setAttribute("width", "22");
     pic.setAttribute("class", "profile-pic");
-  } 
+  }
 
-  var content = $('<div/>', {
-    //id: review.commentId,
-    html: avatarDiv || pic
-  });
-
-  var reviewContent = document.createElement("span");
   var className = 'review-content';
 
   if (isNegtiveReview(review)) {
@@ -116,8 +110,15 @@ function appendReview(review) {
     console.log('get a bad review');
   }
 
-  reviewContent.setAttribute("class", className);
+  var content = $('<div/>', {
+    class: className,
+    html: null
+  });
 
+  var line1 = $('<div/>', {
+    html: avatarDiv || pic
+  });
+  
   var reviewAuthor = document.createElement("span");
   reviewAuthor.innerHTML = review.author;
   reviewAuthor.setAttribute("class", 'review-author');
@@ -126,10 +127,11 @@ function appendReview(review) {
   reviewComment.innerHTML = review.comment;
   reviewComment.setAttribute("class", 'review-comment');
 
-  reviewContent.appendChild(reviewAuthor);
-  reviewContent.appendChild(reviewComment);
+  line1.append(avatarDiv || pic);
+  line1.append(reviewAuthor);
 
-  content.append(reviewContent);
+  content.append(line1);
+  content.append(reviewComment);
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
