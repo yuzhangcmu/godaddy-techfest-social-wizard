@@ -16,9 +16,12 @@ $( document ).ready(function() {
   //});
 
   //pop up window when click on the plus button
-  popUpWindow();
+  popUpWindow('plusModal', 'addbtn', 0);
+  popUpWindow('add_social_media_modal', 'to-add', 1);
+  closeWindow('plusModal', 'add_social_media_modal');
 
-  attachPicture();
+  attachWidgetPicture();
+  attachSocialMediaPicture();
 
   console.log( "end!" );
   //$.ajax({
@@ -91,30 +94,40 @@ function appendReview(review) {
   $("#latest-reviews").append(htmlContent);
 }
 
-function popUpWindow() {
+function popUpWindow(modalId, buttonId, index) {
   // Get the modal
-  var modal = document.getElementById('plusModal');
+  var modal = document.getElementById(modalId);
   // Get the button that opens the modal
-  var btn = document.getElementById("addbtn");
+  var btn = document.getElementById(buttonId);
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+  var span = document.getElementsByClassName("close")[index];
   // When the user clicks the button, open the modal
   btn.onclick = function() {
-      modal.style.display = "block";
-  };
+    modal.style.display = "block";
+  }
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
-      modal.style.display = "none";
-  };
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
+    modal.style.display = "none";
   }
 }
 
-function attachPicture() {
+// When the user clicks anywhere outside of the modal, close it
+function closeWindow(modalId, modalId2) {
+  var modal = document.getElementById(modalId);
+  var modal2 = document.getElementById(modalId2);
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    } else if (event.target == modal2) {
+      modal2.style.display = "none";
+    }
+  }
+}
+
+
+function attachWidgetPicture() {
   var flareBtn = document.getElementById('addFlareBtn');
   var btn = document.getElementById("addbtn");
 
@@ -133,5 +146,20 @@ function attachPicture() {
         return false;
     }
     $("#addbtn").css('background-image', 'url(3-az.jpg)');
+  }
+}
+
+function attachSocialMediaPicture() {
+  var googleBtn = document.getElementById('addGooglePlusBtn');
+  var btn = document.getElementById("to-add");
+
+  googleBtn.onclick = function() {
+
+    //disable the addBtn
+    btn.onclick = function() {
+      return false;
+    }
+
+    $("#to-add").css('background-image', 'url(2-az.jpg)');
   }
 }
