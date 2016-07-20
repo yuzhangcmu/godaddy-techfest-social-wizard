@@ -23,16 +23,19 @@ $( document ).ready(function() {
     }
   });
 
+
   //pop up window when click on the plus button
   //popUpWindow('plusModal', 'addbtn', 0);
   //popUpWindow('add_social_media_modal', 'to-add', 1);
   //closeWindow('plusModal', 'add_social_media_modal');
 
   showTime();
+
   attachWidgetPicture();
   attachSocialMediaPicture();
 
   setInterval(loadNewReview, 5000);
+  setInterval(showTime, 60000);
 });
 
 function loadNewReview() {
