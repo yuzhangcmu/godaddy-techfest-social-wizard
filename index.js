@@ -39,6 +39,7 @@ $( document ).ready(function() {
 
   attachWidgetPicture();
   attachSocialMediaPicture();
+  todoStatusSwitch();
 
   setInterval(loadNewReview, 5000);
   setInterval(showTime, 60000);
@@ -248,18 +249,24 @@ function deep_loop()
   {
     //var flag = key.search("-");
     var node = document.createElement("LI");
-    var textnode = document.createTextNode(localStorage[key]);
+    var spannode = document.createElement("span");
+    spannode.innerHTML = localStorage[key];
     //if(flag >= 0)
     //{node.appendChild("<h1>"+textnode+"</h1>");}
     //else
     //{
-      node.appendChild(textnode);
+      var checkbox = document.createElement('input');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.setAttribute('class', 'todo-checkbox');
+      node.appendChild(checkbox);
+      node.appendChild(spannode);
     //}
     node.id = key;
 
     var btn = document.createElement("BUTTON");
     btn.id = key;
-    btn.innerHTML = "X";
+    btn.setAttribute('class', 'button cycle-button');
+    btn.innerHTML = "x";
     (function(index){
       btn.onclick = function(){
         //var textnode1 = document.createTextNode(localStorage[index]);
@@ -271,6 +278,18 @@ function deep_loop()
     node.appendChild(btn);
     document.getElementById("myList").appendChild(node);
   }
+}
+
+function todoStatusSwitch(){
+  $(document).on('click', '.todo-checkbox', function(){
+    var spannode = $(this).next('span');
+    if(spannode.hasClass('completed')){
+      spannode.removeClass('completed');
+    }
+    else{
+      spannode.addClass('completed');
+    }
+  });
 }
 
 function myFunction(e)
