@@ -145,6 +145,7 @@ function appendReview(review) {
     var replyButton = document.createElement("button");
     replyButton.innerHTML = 'reply';
     replyButton.style.float = 'right';
+    replyButton.setAttribute("class", 'reply-btn');
     replyButton.setAttribute('target', '_blank');
     replyButton.onclick = function() {
       window.open(

@@ -328,3 +328,22 @@ html {
   margin-bottom: 5px;
   color: white;
 }
+
+.reply-btn {
+  background: transparent;
+  color: red;
+  border: 2px solid red;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  opacity: .7;
+  margin-right: 20px;
+  margin-top: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.reply-btn:hover {
+  opacity: 1;
+  background-color: red;
+  color: white;
+}
