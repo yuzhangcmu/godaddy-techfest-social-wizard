@@ -129,11 +129,6 @@ function appendReview(review) {
   });
 
   $("#latest-reviews-content").append(htmlContent);
-
-  if (isNegtiveReview(review)) {
-    $("#crisis-reviews").append(htmlContent.clone());
-    console.log('add to the crisis reviews');
-  }
 }
 
 function hashCode(str) {
