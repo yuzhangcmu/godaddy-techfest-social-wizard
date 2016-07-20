@@ -348,7 +348,7 @@ html {
 .reply-btn {
   background: transparent;
   color: red;
-  border: 2px solid red;
+  border: 1px solid red;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   text-decoration: none;
   opacity: .7;
