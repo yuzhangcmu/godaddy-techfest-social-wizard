@@ -153,6 +153,18 @@ html {
   margin-top: 130px;
 }
 
+.review-avatar{
+  width: 22px;
+  height:22px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+  font-size:10px;
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .lower {
   display: flex;
   justify-content: center;
