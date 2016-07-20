@@ -112,6 +112,10 @@ function appendReview(review) {
   if (isNegtiveReview(review)) {
     className += ' review-highlight';
     console.log('get a bad review');
+    var badReviewNum = parseInt(document.getElementById('review-tile-badge').innerText);
+    console.log('bad reviews number');
+    console.log(badReviewNum);
+    document.getElementById('review-tile-badge').innerText = badReviewNum + 1;
   }
 
   var content = $('<div/>', {
