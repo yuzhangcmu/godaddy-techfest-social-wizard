@@ -31,7 +31,30 @@
             <script>
               var x = 0;
               localStorage.clear();
+              function removetodo()
+              {
+                var ul = document.getElementById("myList");
+                ul.innerHTML = '';
+                for (var key in localStorage)
+                {
+                  var node = document.createElement("LI");
+                  var textnode = document.createTextNode(localStorage[key]);
+                  node.appendChild(textnode);
+                  node.id = key;
 
+                  var btn = document.createElement("BUTTON");
+                  btn.id = key;
+                  btn.innerHTML = "X";
+                  (function(index){
+                    btn.onclick = function(){
+                      localStorage.removeItem(index);
+                      removetodo();
+                    };
+                  })(key);
+                  node.appendChild(btn);
+                  document.getElementById("myList").appendChild(node);
+                }
+              }
               function myFunction(e)
               {
                 if (e.keyCode == 13)
@@ -49,9 +72,17 @@
                     var node = document.createElement("LI");
                     var textnode = document.createTextNode(localStorage[key]);
                     node.appendChild(textnode);
+                    node.id = key;
 
                     var btn = document.createElement("BUTTON");
+                    btn.id = key;
                     btn.innerHTML = "X";
+                    (function(index){
+                      btn.onclick = function(){
+                        localStorage.removeItem(index);
+                        removetodo();
+                      };
+                    })(key);
                     node.appendChild(btn);
                     document.getElementById("myList").appendChild(node);
                   }
