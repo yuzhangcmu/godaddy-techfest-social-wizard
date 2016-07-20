@@ -354,6 +354,16 @@ html {
   color: white;
 }
 
+.carousel-switch-next {
+  font-size: 35px !important;
+  margin-right: 10px !important;
+}
+
+.carousel-switch-prev {
+  font-size: 35px !important;
+  margin-left: 10px !important;
+}
+
 .custom-icon:hover, span.icon:hover {
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
