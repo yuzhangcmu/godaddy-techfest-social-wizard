@@ -39,6 +39,7 @@ $( document ).ready(function() {
 
   attachWidgetPicture();
   attachSocialMediaPicture();
+  todoStatusSwitch();
 
   setInterval(loadNewReview, 5000);
   setInterval(showTime, 60000);
@@ -135,21 +136,39 @@ function appendReview(review) {
   var reviewComment = document.createElement("div");
   reviewComment.innerHTML = review.comment;
   reviewComment.setAttribute("class", 'review-comment');
+  reviewComment.setAttribute("id", review.commentId);
 
   line1.append(avatarDiv || pic);
   line1.append(reviewAuthor);
 
+  if (isNegtiveReview(review)) {
+    var replyButton = document.createElement("button");
+    replyButton.innerHTML = 'reply';
+    replyButton.style.float = 'right';
+    replyButton.setAttribute('target', '_blank');
+    replyButton.onclick = function() {
+      window.open(
+        'https://www.yelp.com/biz/techfests-diner-phoenix',
+        '_blank' // <- This is what makes it open in a new window.
+      );
+    };
+
+    reviewComment.appendChild(replyButton);
+  }
+
   content.append(line1);
   content.append(reviewComment);
+
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
     html: content
   });
 
-  reviewComment.addEventListener('click', function() {
-    alert( "Handler for .click() called." );
-  });
+  //reviewComment.addEventListener('click', function(event) {
+  //  alert( "Handler for .click() called." + event.target.id );
+  //  console.log(event.target);
+  //});
 
   $("#latest-reviews-content").append(htmlContent);
 }
@@ -252,18 +271,24 @@ function deep_loop()
   {
     //var flag = key.search("-");
     var node = document.createElement("LI");
-    var textnode = document.createTextNode(localStorage[key]);
+    var spannode = document.createElement("span");
+    spannode.innerHTML = localStorage[key];
     //if(flag >= 0)
     //{node.appendChild("<h1>"+textnode+"</h1>");}
     //else
     //{
-      node.appendChild(textnode);
+      var checkbox = document.createElement('input');
+      checkbox.setAttribute('type', 'checkbox');
+      checkbox.setAttribute('class', 'todo-checkbox');
+      node.appendChild(checkbox);
+      node.appendChild(spannode);
     //}
     node.id = key;
 
     var btn = document.createElement("BUTTON");
     btn.id = key;
-    btn.innerHTML = "X";
+    btn.setAttribute('class', 'button cycle-button');
+    btn.innerHTML = "x";
     (function(index){
       btn.onclick = function(){
         //var textnode1 = document.createTextNode(localStorage[index]);
@@ -275,6 +300,18 @@ function deep_loop()
     node.appendChild(btn);
     document.getElementById("myList").appendChild(node);
   }
+}
+
+function todoStatusSwitch(){
+  $(document).on('click', '.todo-checkbox', function(){
+    var spannode = $(this).next('span');
+    if(spannode.hasClass('completed')){
+      spannode.removeClass('completed');
+    }
+    else{
+      spannode.addClass('completed');
+    }
+  });
 }
 
 function myFunction(e)
