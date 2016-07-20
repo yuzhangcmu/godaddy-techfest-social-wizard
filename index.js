@@ -113,6 +113,10 @@ function appendReview(review) {
   if (isNegtiveReview(review)) {
     className += ' review-highlight';
     console.log('get a bad review');
+    var badReviewNum = parseInt(document.getElementById('review-tile-badge').innerText);
+    console.log('bad reviews number');
+    console.log(badReviewNum);
+    document.getElementById('review-tile-badge').innerText = badReviewNum + 1;
   }
 
   var content = $('<div/>', {
@@ -132,21 +136,39 @@ function appendReview(review) {
   var reviewComment = document.createElement("div");
   reviewComment.innerHTML = review.comment;
   reviewComment.setAttribute("class", 'review-comment');
+  reviewComment.setAttribute("id", review.commentId);
 
   line1.append(avatarDiv || pic);
   line1.append(reviewAuthor);
 
+  if (isNegtiveReview(review)) {
+    var replyButton = document.createElement("button");
+    replyButton.innerHTML = 'reply';
+    replyButton.style.float = 'right';
+    replyButton.setAttribute('target', '_blank');
+    replyButton.onclick = function() {
+      window.open(
+        'https://www.yelp.com/biz/techfests-diner-phoenix',
+        '_blank' // <- This is what makes it open in a new window.
+      );
+    };
+
+    reviewComment.appendChild(replyButton);
+  }
+
   content.append(line1);
   content.append(reviewComment);
+
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
     html: content
   });
 
-  reviewComment.addEventListener('click', function() {
-    alert( "Handler for .click() called." );
-  });
+  //reviewComment.addEventListener('click', function(event) {
+  //  alert( "Handler for .click() called." + event.target.id );
+  //  console.log(event.target);
+  //});
 
   $("#latest-reviews-content").append(htmlContent);
 }
