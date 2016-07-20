@@ -1,229 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="main.css" rel="stylesheet">
-    <link href="metro.css" rel="stylesheet">
-    <link href="Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="metro.js"></script>
-		<script src="index.js"></script>
-    <style>
-      h {
-        color: red;
-      }
-    </style>
+  <link href="main.css" rel="stylesheet">
+  <link href="metro.css" rel="stylesheet">
+  <link href="Metro-UI-CSS-master/build/css/metro-icons.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="metro.js"></script>
+  <script src="index.js"></script>
+  <style>
+    h {
+      color: red;
+    }
+  </style>
 
 </head>
 <body>
-    <h1>SocialWizard</h1>
-    <div class="grid">
-	    <div id="upper" class="row cells12">
-        <div id="hero">
-          <div id="herotime"></div>
-          <p class="greeting">Good morning, Phoenix.</p>
-        </div>
-        <div class="cell">
-          <div id="to-dos" class="tile" data-role="tile">
-            <ul id="myList">
-            </ul>
-            <p>Add a todo.</p>
-            <input id="scriptBox" type="text" onkeypress="return myFunction(event)">
-            <script>
-              var x = 0;
-              localStorage.clear();
-              function deep_loop()
-              {
-                var ul = document.getElementById("myList");
-                ul.innerHTML = '';
-                for (var key in localStorage)
-                {
-                  var node = document.createElement("LI");
-                  var textnode = document.createTextNode(localStorage[key]);
-                  node.appendChild(textnode);
-                  node.id = key;
+<h1>SocialWizard</h1>
+<div class="grid">
+  <div id="upper" class="row cells12">
+    <div id="hero">
+      <div id="herotime"></div>
+      <p class="greeting">Good morning, Phoenix.</p>
+    </div>
+    <div class="cell">
+      <div id="to-dos" class="tile" data-role="tile">
+        <ul id="myList">
+        </ul>
+        <p>Add a todo.</p>
+        <input id="scriptBox" type="text" onkeypress="return myFunction(event)">
+        <script>
+          var x = 0;
+          localStorage.clear();
+          function deep_loop() {
+            var ul = document.getElementById("myList");
+            ul.innerHTML = '';
+            for (var key in localStorage) {
+              var node = document.createElement("LI");
+              var textnode = document.createTextNode(localStorage[key]);
+              node.appendChild(textnode);
+              node.id = key;
 
-                  var btn = document.createElement("BUTTON");
-                  btn.id = key;
-                  btn.innerHTML = "X";
-                  (function(index){
-                    btn.onclick = function(){
-                      localStorage.removeItem(index);
-                      deep_loop();
-                    };
-                  })(key);
-                  node.appendChild(btn);
-                  document.getElementById("myList").appendChild(node);
-                }
-              }
-              function myFunction(e)
-              {
-                if (e.keyCode == 13)
-                {
-                  var tb = document.getElementById("scriptBox");
-                  localStorage.setItem(x.toString(), tb.value);
-                  x++;
-                  document.getElementById("scriptBox").value = '';
+              var btn = document.createElement("BUTTON");
+              btn.id = key;
+              btn.innerHTML = "X";
+              (function (index) {
+                btn.onclick = function () {
+                  localStorage.removeItem(index);
                   deep_loop();
-                }
-              }
-              </script>
-          </div>
-        </div>
-	    </div>
-	    <div class="lower">
-	    	<div class="lower-left">
-	    		<div class="tile-container">
-            <!-- flare -->
-		    		<div class="cell">
-			        	<!-- <div class="tile square flare" data-role="tile">Flare</div> -->
-                <img src="img/flare_icon.svg" class="flare" id="addbtn"/>
-                <!-- The Modal -->
-                <div id="plusModal" class="modal">
-                  <!-- Modal content -->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <span class="close">x</span>
-                      <h2>Modal Header</h2>
-                    </div>
-                    <div class="modal-body">
-                      <button id="addFlareBtn">flare</button>
-                      <button id="addWeiboBtn">weibo</button>
-                    </div>
-                    <div class="modal-footer">
-                      <h3>Modal Footer</h3>
-                    </div>
-                  </div>
-                </div>
-			        </div>
-              <!-- pokemon go -->
-			        <div class="cell">
-			        	<!-- <div id="add-on" class="tile square" data-role="tile">Pokeman go</div> -->
-                <img src="img/pokemon_icon.png" id="pokemon"/>
-			        </div>
-	    		</div>
-	    	</div>
-	    	<div class="lower-middle">
-	    		<div id="live-slide" class="tile tile-wide tile-wide-y" data-role="tile">
-						<div class="tile-content">
-							<div class="slide">
-								<div id="latest-reviews">
-                  <div id="review-loader">
-                    <div><span class="mif-spinner2 mif-ani-pulse mif-1x"></span></div>
-                  </div>
-                  <div id="latest-reviews-content">
-                  </div>
-								</div>
-
-								<span class="tile-label">Latest social comments</span>
-								<span class="tile-badge">5</span>
-							</div>
-						</div>
-					</div>
-	    	</div>
-	    	<div class="lower-right">
-    			<div class="tile-container">
-            <div class="bottom-right-up">
-            <!-- email -->
-						<div class="tile square bg-darkBlue fg-white" data-role="tile" onclick="window.open('https://www.microsoft.com/en-us/outlook-com/', '_blank')">
-							<div class="tile-content iconic">
-								<span class="icon mif-envelop"></span>
-							</div>
-							<!-- <span class="tile-label">Inbox</span> -->
-						</div>
-            <!-- social numbers -->
-						<div id="facebook-num" class="tile tile-small-x social-num">
-                <div>6459</div>
-                <div>Followers</div>
-                <span class="custom-icon facebook-icon"></span>
-						</div>
-						<div id="twitter-num" class="tile tile-small-x social-num">
-              <div>755</div>
-              <div>Followers</div>
-              <span class="custom-icon twitter-icon"></span>
-						</div>
-						<div id="yelp-num" class="tile tile-small-x social-num">
-              <div id="yelp-num-value"></div>
-              <div>Reviews</div>
-              <span class="custom-icon yelp-icon"></span>
-						</div>
-						<div id="to-add" class="tile tile-small-x social-num">
-              <div>Add</div>
-              <div>Another</div>
-              <span class="custom-icon add-icon"></span>
+                };
+              })(key);
+              node.appendChild(btn);
+              document.getElementById("myList").appendChild(node);
+            }
+          }
+          function myFunction(e) {
+            if (e.keyCode == 13) {
+              var tb = document.getElementById("scriptBox");
+              localStorage.setItem(x.toString(), tb.value);
+              x++;
+              document.getElementById("scriptBox").value = '';
+              deep_loop();
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="lower">
+    <div class="lower-left">
+      <div class="tile-container">
+        <!-- flare -->
+        <div class="cell">
+          <!-- <div class="tile square flare" data-role="tile">Flare</div> -->
+          <img src="img/flare_icon.svg" class="flare" id="addbtn"/>
+          <!-- The Modal -->
+          <div id="plusModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">x</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <button id="addFlareBtn">flare</button>
+                <button id="addWeiboBtn">weibo</button>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
               </div>
             </div>
-            <!-- pro tips -->
-    				<div id="pro-tips" class="tile tile-big-x">
-	        		<div class="tile-content">
-	        			<div class="carousel" data-role="carousel">
-							<a href="https://www.godaddy.com/garage/smallbusiness/launch/beacon-restaurant-concepts-serves-strong-web-presence/" target="_blank">
-	        				<div class="slide">
-		        				<div class="image-container">
-						            <div class="frame">
-						                <img src="img/beacon-restaurant-concepts.jpg">
-						            </div>
-						            <div class="image-overlay">
-										<div>GETTING PEOPLE IN SEATS</div>
-										<div>Beacon Restaurant Concepts serves a strong web presence</div>
-										<div>April 21, 2016 No Comments</div>
-						            </div>
-							    </div>
-	        				</div>
-								</a>
-	        				<div class="slide">
-								<a href="https://www.godaddy.com/garage/smallbusiness/market/top-tips-small-businesses-dominate-local-seo/" target="_blank">
-		        				<div class="image-container">
-						            <div class="frame">
-						                <img src="resources/background/1-socialMeadia.jpg"/>
-						            </div>
-						            <div class="image-overlay">
-										<div>KNOW THE LANDSCAPE</div>
-										<div>Top tips for small businesses to dominate local SEO</div>
-										<div>July 19, 2016</div>
-									</div>
-							      </div>
-								</a>
-	        				</div>
-	        				<div class="slide">
-								<a href="https://www.godaddy.com/garage/webpro/wordpress/adding-enticing-restaurant-menus-wordpress-website/" target="_blank">
-		        				<div class="image-container">
-						            <div class="frame">
-						                <img src="img/WordPress-menus.jpg">
-						            </div>
-						            <div class="image-overlay">
-										<div>A QUICK START GUIDE</div>
-										<div>Adding enticing restaurant menus to your WordPress website</div>
-										<div>July 12, 2016 No Comments</div>
-						            </div>
-							    </div>
-									</a>
-	        				</div>
+          </div>
+        </div>
+        <!-- pokemon go -->
+        <div class="cell">
+          <!-- <div id="add-on" class="tile square" data-role="tile">Pokeman go</div> -->
+          <img src="img/pokemon_icon.png" id="pokemon"/>
+        </div>
+      </div>
+    </div>
+    <div class="lower-middle">
+      <div id="live-slide" class="tile tile-wide tile-wide-y" data-role="tile">
+        <div class="tile-content">
+          <div class="slide">
+            <div id="latest-reviews">
+              <div id="review-loader">
+                <div><span class="mif-spinner2 mif-ani-pulse mif-1x"></span></div>
+              </div>
+              <div id="latest-reviews-content">
+              </div>
+            </div>
 
-	        			</div>
-	        			<div class="slide-over">
-					            ... Over slide content here ...
-					        </div>
-	        		</div>
-	        	</div>
-	    	</div>
-	    </div>
-	</div>
-      <!-- The Modal -->
-      <div id="add_social_media_modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">x</span>
-            <h2>Modal Header</h2>
-          </div>
-          <div class="modal-body">
-            <button id="addGooglePlusBtn">google+</button>
-          </div>
-          <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            <span class="tile-label">Latest social comments</span>
+            <span class="tile-badge">5</span>
           </div>
         </div>
       </div>
     </div>
-  </body>
+    <div class="lower-right">
+      <div class="tile-container">
+        <div class="bottom-right-up">
+          <!-- email -->
+          <div class="tile square bg-darkBlue fg-white" data-role="tile"
+               onclick="window.open('https://www.microsoft.com/en-us/outlook-com/', '_blank')">
+            <div class="tile-content iconic">
+              <span class="icon mif-envelop"></span>
+            </div>
+            <!-- <span class="tile-label">Inbox</span> -->
+          </div>
+          <!-- social numbers -->
+          <div id="facebook-num" class="tile tile-small-x social-num">
+            <div>6459</div>
+            <div>Followers</div>
+            <span class="custom-icon facebook-icon"></span>
+          </div>
+          <div id="twitter-num" class="tile tile-small-x social-num">
+            <div>755</div>
+            <div>Followers</div>
+            <span class="custom-icon twitter-icon"></span>
+          </div>
+          <div id="yelp-num" class="tile tile-small-x social-num">
+            <div id="yelp-num-value"></div>
+            <div>Reviews</div>
+            <span class="custom-icon yelp-icon"></span>
+          </div>
+          <div id="to-add" class="tile tile-small-x social-num">
+            <div>Add</div>
+            <div>Another</div>
+            <span class="custom-icon add-icon"></span>
+          </div>
+        </div>
+        <!-- pro tips -->
+        <div id="pro-tips" class="tile tile-big-x">
+          <div class="tile-content">
+            <div class="carousel" data-role="carousel">
+              <a href="https://www.godaddy.com/garage/smallbusiness/launch/beacon-restaurant-concepts-serves-strong-web-presence/"
+                 target="_blank">
+                <div class="slide">
+                  <div class="image-container">
+                    <div class="frame">
+                      <img src="img/beacon-restaurant-concepts.jpg">
+                    </div>
+                    <div class="image-overlay">
+                      <div>GETTING PEOPLE IN SEATS</div>
+                      <div>Beacon Restaurant Concepts serves a strong web presence</div>
+                      <div>April 21, 2016 No Comments</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <div class="slide">
+                <a href="https://www.godaddy.com/garage/smallbusiness/market/top-tips-small-businesses-dominate-local-seo/"
+                   target="_blank">
+                  <div class="image-container">
+                    <div class="frame">
+                      <img src="resources/background/1-socialMeadia.jpg"/>
+                    </div>
+                    <div class="image-overlay">
+                      <div>KNOW THE LANDSCAPE</div>
+                      <div>Top tips for small businesses to dominate local SEO</div>
+                      <div>July 19, 2016</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="slide">
+                <a href="https://www.godaddy.com/garage/webpro/wordpress/adding-enticing-restaurant-menus-wordpress-website/"
+                   target="_blank">
+                  <div class="image-container">
+                    <div class="frame">
+                      <img src="img/WordPress-menus.jpg">
+                    </div>
+                    <div class="image-overlay">
+                      <div>A QUICK START GUIDE</div>
+                      <div>Adding enticing restaurant menus to your WordPress website</div>
+                      <div>July 12, 2016 No Comments</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+            <div class="slide-over">
+              ... Over slide content here ...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div id="add_social_media_modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">x</span>
+        <h2>Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <button id="addGooglePlusBtn">google+</button>
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>
