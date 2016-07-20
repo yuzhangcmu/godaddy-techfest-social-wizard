@@ -310,14 +310,16 @@ html {
 .news-image {
   max-width: 56%;
   display: inline!important;
+  float: left;
 }
 
 .news-title {
-  display: inline;
-  color: black;
-  font-weight: 600;
-  font-size: 20px;
-  margin-left: 20px;
+  /*float: left;*/
+  /*display: inline;*/
+  /*color: black;*/
+  /*font-weight: 600;*/
+  /*font-size: 20px;*/
+  /*margin-left: 20px;*/
 }
 
 .bottom-label {
