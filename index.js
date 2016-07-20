@@ -18,9 +18,24 @@ $( document ).ready(function() {
   popUpWindow('add_social_media_modal', 'to-add', 1);
   closeWindow('plusModal', 'add_social_media_modal');
 
+  showTime();
   attachWidgetPicture();
   attachSocialMediaPicture();
 });
+
+function showTime(){
+  var date = new Date;
+  var minute = date.getMinutes();
+  var hour = date.getHours();
+  if(hour < 10){
+    hour = '0' + hour;
+  }
+  if(minute < 10){
+    minute = '0' + minute;
+  }
+  timestr = hour + ':' + minute;
+  document.getElementById('herotime').innerHTML = timestr;
+}
 
 function parseData(jsonData) {
   const data = jsonData.data;
