@@ -20,19 +20,40 @@ $( document ).ready(function() {
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
-      $('#review-loader').hide();
     }
   });
 
   //pop up window when click on the plus button
-  popUpWindow('plusModal', 'addbtn', 0);
-  popUpWindow('add_social_media_modal', 'to-add', 1);
-  closeWindow('plusModal', 'add_social_media_modal');
+  //popUpWindow('plusModal', 'addbtn', 0);
+  //popUpWindow('add_social_media_modal', 'to-add', 1);
+  //closeWindow('plusModal', 'add_social_media_modal');
 
   showTime();
   attachWidgetPicture();
   attachSocialMediaPicture();
+
+  setInterval(loadNewReview, 5000);
 });
+
+function loadNewReview() {
+  //var d = new Date();
+  //document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+  $.ajax( {
+    type:'Get',
+    dataType: 'json',
+
+    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/lastreview',
+    success:function(data) {
+      console.log(data);
+      parseData(data);
+      //$('#review-loader').hide();
+      console.log('Get new review:');
+      console.log(data);
+    }
+  });
+
+
+}
 
 function showTime(){
   var date = new Date;
@@ -50,6 +71,10 @@ function showTime(){
 
 function parseData(jsonData) {
   const data = jsonData.data;
+
+  if (!data) {
+    return;
+  }
 
   for (var i = 0; i < data.length; i++) {
     var review = data[i];
@@ -103,7 +128,7 @@ function appendReview(review) {
     html: content
   });
 
-  $("#latest-reviews").append(htmlContent);
+  $("#latest-reviews-content").append(htmlContent);
 
   if (isNegtiveReview(review)) {
     $("#crisis-reviews").append(htmlContent.clone());
