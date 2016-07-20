@@ -151,6 +151,10 @@ html {
   margin-top: 130px;
 }
 
+#latest-reviews-content {
+  overflow: scroll;
+}
+
 .lower {
   display: flex;
   justify-content: center;
@@ -178,4 +182,15 @@ html {
 
 #pokemon {
   margin-top: 20px;
+}
+
+.blur {
+  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+
+  -webkit-filter: blur(10px); /* Chrome, Opera */
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
 }
