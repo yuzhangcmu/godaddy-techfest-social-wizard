@@ -13,6 +13,17 @@ $( document ).ready(function() {
     }
   });
 
+  $.ajax( {
+    type:'Get',
+    dataType: 'json',
+
+    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
+    success:function(data) {
+      document.getElementById('yelp-num-value').innerText = data.data.review_count;
+      $('#review-loader').hide();
+    }
+  });
+
   //pop up window when click on the plus button
   popUpWindow('plusModal', 'addbtn', 0);
   popUpWindow('add_social_media_modal', 'to-add', 1);
