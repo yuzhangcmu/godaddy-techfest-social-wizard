@@ -240,10 +240,23 @@ html {
 
 .flare {
   cursor: pointer;
+  opacity: .9;
+  transition: all .2s ease;
+}
+
+.flare:hover {
+  opacity: 1;
 }
 
 #pokemon {
   margin-top: 20px;
+  cursor: pointer;
+  opacity: .9;
+  transition: all .2s ease;
+}
+
+#pokemon:hover {
+  opacity: 1;
 }
 
 .greeting {
@@ -412,4 +425,14 @@ html {
     to {
         transform:rotate(360deg);
     }
+}
+
+#email {
+  opacity: .9;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+#email:hover {
+  opacity: 1;
 }
