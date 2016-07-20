@@ -1,10 +1,18 @@
 html {
-      background: url(img/background_morning_blur.png) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
+  background: url(img/background_morning_blur.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+
+
+}
+
+.element {
+  -webkit-backdrop-filter: blur(10px) brightness(1.2) contrast(0.3);
+}
 
 #facebook-num, #twitter-num, #yelp-num, #to-add {
   width: 85px;
