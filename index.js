@@ -6,14 +6,14 @@ $( document ).ready(function() {
     html: 'review 1'
   });
 
-  //$.ajax( {
-  //  type:'Get',
-  //  dataType: 'json',
-  //  url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
-  //  success:function(data) {
-  //    alert(data);
-  //  }
-  //});
+  $.ajax( {
+    type:'Get',
+    dataType: 'json',
+    url:'http://localhost:3000/api/yelp/techfests-diner-phoenix/reviews',
+    success:function(data) {
+      parseData(data);
+    }
+  });
 
   //pop up window when click on the plus button
   popUpWindow();
@@ -31,25 +31,16 @@ $( document ).ready(function() {
 
   const data = '{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"techfests-diner-phoenix\",\r\n      \"commentId\": \"pW6FLeLXHxjVQEeKiu_D5A\",\r\n      \"rating\": 3,\r\n      \"date\": \"2016-07-19\",\r\n      \"comment\": \"Food was great but very small plates, not recommended for groups.\",\r\n      \"avatarLink\": \"\/\/s3-media3.fl.yelpcdn.com\/assets\/srv0\/yelp_styleguide\/20983a63ea50\/assets\/img\/default_avatars\/user_60_square.png\",\r\n      \"author\": \"Chelsea Q.\"\r\n    },\r\n    {\r\n      \"id\": \"techfests-diner-phoenix\",\r\n      \"commentId\": \"pW6FLeLXHxjVQEeKiu_D5B\",\r\n      \"rating\": 1,\r\n      \"date\": \"2016-07-20\",\r\n      \"comment\": \"Food was so bad!\",\r\n      \"avatarLink\": \"\/\/s3-media3.fl.yelpcdn.com\/assets\/srv0\/yelp_styleguide\/20983a63ea50\/assets\/img\/default_avatars\/user_60_square.png\",\r\n      \"author\": \"Creepy.\"\r\n    }\r\n  ]\r\n}';
 
-  parseData(data);
+  //parseData(data);
 });
 
-function parseData(data) {
-  var jsonobj = JSON.parse(data);
+function parseData(jsonData) {
+  const data = jsonData.data;
 
-  const jsonData = jsonobj.data;
+  console.log( 'len!'  + data.length);
 
-  console.log( 'len!'  + jsonData.length);
-
-  for (var i = 0; i < jsonData.length; i++) {
-    console.log(jsonData[i].id);
-    console.log(jsonData[i].commentId);
-    console.log(jsonData[i].rating);
-    console.log(jsonData[i].date);
-    console.log(jsonData[i].avatarLink);
-    console.log(jsonData[i].author);
-
-    var review = jsonData[i];
+  for (var i = 0; i < data.length; i++) {
+    var review = data[i];
     appendReview(review);
   }
 
