@@ -106,3 +106,23 @@ html {
 #pro-tips:hover {
   outline: none;
 }
+
+#hero {
+  width: 875px;
+  height: 351px;
+}
+
+#to-dos {
+  width: 152px;
+  height: 351px;
+  margin: 0;
+}
+
+#to-dos:hover {
+  outline: none;
+}
+
+#upper {
+  display: flex;
+  justify-content: center;
+}
