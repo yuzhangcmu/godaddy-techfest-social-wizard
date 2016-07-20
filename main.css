@@ -153,9 +153,16 @@ html {
   margin-top: 130px;
 }
 
-.review-avatar {
-    width: 35px;
+.review-line1 {
     height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.review-avatar {
+    height: 35px;
+    width: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +212,7 @@ html {
 .profile-pic {
   width: 32px;
   height: 32px;
-  display: flex;
+  display: inline;
   align-items: center;
   justify-content: center;
 }
