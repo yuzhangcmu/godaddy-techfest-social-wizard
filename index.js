@@ -1,4 +1,5 @@
 var x = 0;
+var porkManUrl;
 
 $( document ).ready(function() {
   console.log( 'ready!' );
@@ -26,6 +27,23 @@ $( document ).ready(function() {
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
+
+      console.log("business info");
+      console.log(data.data);
+
+      console.log('latitde:');
+      var latitude = data.data.location.coordinate.latitude;
+      var longitude = data.data.location.coordinate.longitude;
+      console.log(data.data.location.coordinate.latitude);
+      console.log(data.data.location.coordinate.longitude);
+      console.log('longti:');
+
+      porkManUrl = "https://pokevision.com/#/@";
+      porkManUrl += latitude + ",";
+      porkManUrl += longitude;
+      console.log(porkManUrl);
+
+      $('#pokemen-link').attr("href", porkManUrl);
     }
   });
 
