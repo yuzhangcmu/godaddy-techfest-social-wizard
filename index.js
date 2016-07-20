@@ -1,4 +1,4 @@
-var x = 0;
+var numTodo = 0;
 var porkManUrl;
 
 $( document ).ready(function() {
@@ -55,7 +55,7 @@ $( document ).ready(function() {
 
   showTime();
 
-  attachWidgetPicture();
+  //attachWidgetPicture();
   attachSocialMediaPicture();
   todoStatusSwitch();
 
@@ -291,7 +291,7 @@ function deep_loop()
     //var flag = key.search("-");
     var node = document.createElement("LI");
     var spannode = document.createElement("span");
-    spannode.innerHTML = localStorage[key];
+    spannode.innerHTML = JSON.parse(localStorage[key]).value;
     //if(flag >= 0)
     //{node.appendChild("<h1>"+textnode+"</h1>");}
     //else
@@ -299,37 +299,49 @@ function deep_loop()
       var checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
       checkbox.setAttribute('class', 'todo-checkbox');
+      checkbox.setAttribute('tab', key);
+      if(JSON.parse(localStorage[key]).completed) {
+        checkbox.setAttribute('checked', 'checked');
+        spannode.classList.add("completed");
+      }
       node.appendChild(checkbox);
       node.appendChild(spannode);
     //}
-    node.id = key;
+    node.id = 'li' + key;
 
     var btn = document.createElement("BUTTON");
-    btn.id = key;
+    btn.setAttribute('tab', key);
     btn.setAttribute('class', 'button cycle-button');
     btn.innerHTML = "x";
-    (function(index){
-      btn.onclick = function(){
-        //var textnode1 = document.createTextNode(localStorage[index]);
-        localStorage.removeItem(index);
-        //localStorage.setItem("-" + index, textnode1);
-        deep_loop();
-      };
-    })(key);
+
     node.appendChild(btn);
     document.getElementById("myList").appendChild(node);
   }
 }
 
 function todoStatusSwitch(){
-  $(document).on('click', '.todo-checkbox', function(){
+  $(document).on('click', '.todo-checkbox', function(event){
     var spannode = $(this).next('span');
+
+    var index = $(this).attr('tab');
+    var todoTmp = JSON.parse(localStorage[index]);
+
     if(spannode.hasClass('completed')){
       spannode.removeClass('completed');
+      todoTmp['completed'] = false;
     }
     else{
       spannode.addClass('completed');
+      todoTmp['completed'] = true;
     }
+
+    localStorage.setItem(index, JSON.stringify(todoTmp));
+  });
+
+  $(document).on('click', '.cycle-button', function(event){
+    var index = $(this).attr('tab');
+    localStorage.removeItem(index);
+    deep_loop();
   });
 }
 
@@ -338,8 +350,11 @@ function myFunction(e)
   if (e.keyCode == 13)
   {
     var tb = document.getElementById("scriptBox");
-    localStorage.setItem(x.toString(), tb.value);
-    x++;
+    localStorage.setItem(numTodo.toString(), JSON.stringify({
+      value: tb.value,
+      completed: false
+    }));
+    numTodo++;
     document.getElementById("scriptBox").value = '';
     deep_loop();
   }
