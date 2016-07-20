@@ -314,6 +314,10 @@ html {
 
 .news-title {
   display: inline;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 20px;
 }
 
 .bottom-label {
