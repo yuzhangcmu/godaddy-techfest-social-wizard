@@ -29,16 +29,19 @@ $( document ).ready(function() {
     }
   });
 
+
   //pop up window when click on the plus button
   //popUpWindow('plusModal', 'addbtn', 0);
   //popUpWindow('add_social_media_modal', 'to-add', 1);
   //closeWindow('plusModal', 'add_social_media_modal');
 
   showTime();
+
   attachWidgetPicture();
   attachSocialMediaPicture();
 
   setInterval(loadNewReview, 5000);
+  setInterval(showTime, 60000);
 });
 
 function loadNewReview() {
@@ -100,12 +103,9 @@ function appendReview(review) {
     avatarDiv.innerHTML = nameInitial;
     avatarDiv.setAttribute('class', 'review-avatar');
     avatarDiv.setAttribute('style', 'background-color:' + color);
-  }
-  else{
+  } else {
     var pic = document.createElement("IMG");
     pic.setAttribute("src", 'http://' + review.avatarLink);
-    pic.setAttribute("height", "22");
-    pic.setAttribute("width", "22");
     pic.setAttribute("class", "profile-pic");
   }
 
@@ -122,6 +122,7 @@ function appendReview(review) {
   });
 
   var line1 = $('<div/>', {
+    class: 'review-line1',
     html: avatarDiv || pic
   });
 

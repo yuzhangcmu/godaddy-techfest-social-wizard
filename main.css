@@ -1,10 +1,18 @@
 html {
-      background: url(img/background_morning_blur.png) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
+  background: url(img/background_morning_blur.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+
+
+}
+
+.element {
+  -webkit-backdrop-filter: blur(10px) brightness(1.2) contrast(0.3);
+}
 
 #facebook-num, #twitter-num, #yelp-num, #to-add {
   width: 85px;
@@ -135,6 +143,12 @@ html {
   height: 351px;
   margin: 0;
   margin-left: -10px;
+  /*background-image: url("img/todo_background.png");*/
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: none;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }
 
 #to-dos:hover {
@@ -153,9 +167,16 @@ html {
   margin-top: 130px;
 }
 
-.review-avatar {
-    width: 35px;
+.review-line1 {
     height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.review-avatar {
+    height: 35px;
+    width: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,7 +226,7 @@ html {
 .profile-pic {
   width: 32px;
   height: 32px;
-  display: flex;
+  display: inline;
   align-items: center;
   justify-content: center;
 }
@@ -216,4 +237,30 @@ html {
 
 .review-highlight {
   color: pink;
+}
+
+#scriptBox {
+  width: 80%;
+  -webkit-transition: border-color .2s ease;
+  margin: 0 auto;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-weight: 300;
+  outline: 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 120%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.news-image {
+  max-width: 56%;
+  display: inline!important;
+}
+
+.news-title {
+  display: inline;
 }
