@@ -116,16 +116,18 @@ html {
   width: 875px;
   height: 351px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-size:cover;
+  background-size: cover;
+  background-image: url('img/background_morning.png');
 }
 
 #herotime{
   color: white;
   font-weight: bold;
-  font-size:88px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size:100px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #to-dos {
@@ -149,6 +151,18 @@ html {
   align-items: center;
   justify-content: center;
   margin-top: 130px;
+}
+
+.review-avatar {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .lower {
@@ -178,4 +192,28 @@ html {
 
 #pokemon {
   margin-top: 20px;
+}
+
+.greeting {
+  color: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  margin: 0;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-content {
+
+}
+
+.review-highlight {
+  color: pink;
 }

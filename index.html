@@ -18,8 +18,9 @@
     <h1>SocialWizard</h1>
     <div class="grid">
 	    <div id="upper" class="row cells12">
-        <div id="hero" class="cell colspan10" style="background-image:url('img/background_morning.jpg');">
+        <div id="hero">
           <div id="herotime"></div>
+          <p class="greeting">Good morning, Phoenix.</p>
         </div>
         <div class="cell">
           <div id="to-dos" class="tile" data-role="tile">
@@ -124,20 +125,19 @@
 	    		</div>
 	    	</div>
 	    	<div class="lower-middle">
-	    		<div id="live-slide" class="tile tile-wide tile-wide-y" data-role="tile" data-effect="slideLeftRight">
+	    		<div id="live-slide" class="tile tile-wide tile-wide-y" data-role="tile">
 						<div class="tile-content">
-							<div class="live-slide">
+							<div class="slide">
 								<div id="latest-reviews">
                   <div id="review-loader">
                     <div><span class="mif-spinner2 mif-ani-pulse mif-1x"></span></div>
+                  </div>
+                  <div id="latest-reviews-content">
                   </div>
 								</div>
 
 								<span class="tile-label">Latest social comments</span>
 								<span class="tile-badge">5</span>
-							</div>
-							<div class="live-slide">
-                <div id="crisis-reviews"></div>
 							</div>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
     			<div class="tile-container">
             <div class="bottom-right-up">
             <!-- email -->
-						<div class="tile square bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='https://www.microsoft.com/en-us/outlook-com/'">
+						<div class="tile square bg-darkBlue fg-white" data-role="tile" onclick="window.open('https://www.microsoft.com/en-us/outlook-com/', '_blank')">
 							<div class="tile-content iconic">
 								<span class="icon mif-envelop"></span>
 							</div>
@@ -178,35 +178,47 @@
     				<div id="pro-tips" class="tile tile-big-x">
 	        		<div class="tile-content">
 	        			<div class="carousel" data-role="carousel">
+							<a href="https://www.godaddy.com/garage/smallbusiness/launch/beacon-restaurant-concepts-serves-strong-web-presence/" target="_blank">
 	        				<div class="slide">
 		        				<div class="image-container">
 						            <div class="frame">
-						                <img src="resources/background/1-socialMeadia.jpg">
+						                <img src="img/beacon-restaurant-concepts.jpg">
 						            </div>
 						            <div class="image-overlay">
-						                Using social media to make your blog more profitable
+										<div>GETTING PEOPLE IN SEATS</div>
+										<div>Beacon Restaurant Concepts serves a strong web presence</div>
+										<div>April 21, 2016 No Comments</div>
 						            </div>
 							    </div>
 	        				</div>
+								</a>
 	        				<div class="slide">
+								<a href="https://www.godaddy.com/garage/smallbusiness/market/top-tips-small-businesses-dominate-local-seo/" target="_blank">
 		        				<div class="image-container">
 						            <div class="frame">
-						                <img src="resources/background/2-az.jpg">
+						                <img src="resources/background/1-socialMeadia.jpg"/>
 						            </div>
 						            <div class="image-overlay">
-						                Welcome to AZ
-						            </div>
+										<div>KNOW THE LANDSCAPE</div>
+										<div>Top tips for small businesses to dominate local SEO</div>
+										<div>July 19, 2016</div>
+									</div>
 							      </div>
+								</a>
 	        				</div>
 	        				<div class="slide">
+								<a href="https://www.godaddy.com/garage/webpro/wordpress/adding-enticing-restaurant-menus-wordpress-website/" target="_blank">
 		        				<div class="image-container">
 						            <div class="frame">
-						                <img src="resources/background/3-az.jpg">
+						                <img src="img/WordPress-menus.jpg">
 						            </div>
 						            <div class="image-overlay">
-						                Welcome to AZ 2
+										<div>A QUICK START GUIDE</div>
+										<div>Adding enticing restaurant menus to your WordPress website</div>
+										<div>July 12, 2016 No Comments</div>
 						            </div>
 							    </div>
+									</a>
 	        				</div>
 
 	        			</div>
