@@ -285,3 +285,8 @@ html {
 .bottom-label {
   margin-left: 10px;
 }
+
+.fix {
+  margin-bottom: 5px;
+  color: white;
+}
