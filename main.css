@@ -10,8 +10,7 @@ html {
   width: 85px;
   height: 165px;
   box-shadow: none;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
 }
 
 #facebook-num {
@@ -89,4 +88,21 @@ html {
 .add-icon {
   -webkit-mask-image: url('img/add_icon.svg');
   mask-image: url('img/add_icon.svg');
+}
+
+.square {
+  width: 157px !important;
+  height: 165px !important;
+  margin: 0 !important;
+}
+
+#pro-tips {
+  height: 165px;
+  width: 517px;
+  left: -5px;
+  margin-top: 20px;
+}
+
+#pro-tips:hover {
+  outline: none;
 }
