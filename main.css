@@ -267,6 +267,7 @@ html {
 
 #pokemon:hover {
   opacity: 1;
+  outline: none !important;
 }
 
 .greeting {
