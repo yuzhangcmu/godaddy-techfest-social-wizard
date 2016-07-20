@@ -1,5 +1,11 @@
+var x = 0;
+
 $( document ).ready(function() {
   console.log( 'ready!' );
+
+  localStorage.clear();
+
+  $("#scriptBox").keypress(myFunction);
 
   $.ajax( {
     type:'Get',
@@ -23,16 +29,19 @@ $( document ).ready(function() {
     }
   });
 
+
   //pop up window when click on the plus button
   //popUpWindow('plusModal', 'addbtn', 0);
   //popUpWindow('add_social_media_modal', 'to-add', 1);
   //closeWindow('plusModal', 'add_social_media_modal');
 
   showTime();
+
   attachWidgetPicture();
   attachSocialMediaPicture();
 
   setInterval(loadNewReview, 5000);
+  setInterval(showTime, 60000);
 });
 
 function loadNewReview() {
@@ -84,7 +93,7 @@ function appendReview(review) {
   console.log('appendReview:');
   console.log(review);
 
-  
+
   if(review.avatarLink.indexOf('default_avatars/user_60_square.png') > -1){
     var nameInitial = review.author.charAt(0).toUpperCase();
     var color = '#' + intToRGB(hashCode(review.author))
@@ -147,7 +156,7 @@ function hashCode(str) {
        hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
     return hash;
-} 
+}
 
 function intToRGB(i){
     var c = (i & 0x00FFFFFF)
@@ -228,5 +237,50 @@ function attachSocialMediaPicture() {
     };
 
     $("#to-add").css('background-image', 'url(2-az.jpg)');
+  }
+}
+
+function deep_loop()
+{
+  var ul = document.getElementById("myList");
+  ul.innerHTML = '';
+  for (var key in localStorage)
+  {
+    //var flag = key.search("-");
+    var node = document.createElement("LI");
+    var textnode = document.createTextNode(localStorage[key]);
+    //if(flag >= 0)
+    //{node.appendChild("<h1>"+textnode+"</h1>");}
+    //else
+    //{
+      node.appendChild(textnode);
+    //}
+    node.id = key;
+
+    var btn = document.createElement("BUTTON");
+    btn.id = key;
+    btn.innerHTML = "X";
+    (function(index){
+      btn.onclick = function(){
+        //var textnode1 = document.createTextNode(localStorage[index]);
+        localStorage.removeItem(index);
+        //localStorage.setItem("-" + index, textnode1);
+        deep_loop();
+      };
+    })(key);
+    node.appendChild(btn);
+    document.getElementById("myList").appendChild(node);
+  }
+}
+
+function myFunction(e)
+{
+  if (e.keyCode == 13)
+  {
+    var tb = document.getElementById("scriptBox");
+    localStorage.setItem(x.toString(), tb.value);
+    x++;
+    document.getElementById("scriptBox").value = '';
+    deep_loop();
   }
 }
