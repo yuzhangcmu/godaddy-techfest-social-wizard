@@ -277,7 +277,7 @@ html {
 }
 
 .review-content {
-  padding: 15px 25px 0 25px;
+  padding: 15px 25px;
   font-size: 12px;
   color: #9B9B9B;
 }
@@ -289,6 +289,10 @@ html {
 .review-highlight {
   font-weight: bold;
 }
+
+/*.reviews-list:nth-child(even) {
+    background-color: #CCC;
+}*/
 
 #scriptBox {
   width: 80%;
@@ -329,4 +333,63 @@ html {
 .fix {
   margin-bottom: 5px;
   color: white;
+}
+
+.reply-btn {
+  background: transparent;
+  color: red;
+  border: 2px solid red;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  opacity: .7;
+  margin-right: 20px;
+  margin-top: 5px;
+  /*padding-left: 12px;
+  padding-right: 12px;*/
+}
+
+.reply-btn:hover {
+  opacity: 1;
+  background-color: red;
+  color: white;
+}
+
+.custom-icon:hover, span.icon:hover {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 4000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 4000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
