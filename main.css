@@ -277,7 +277,7 @@ html {
 }
 
 .review-content {
-  padding: 15px 25px 0 25px;
+  padding: 15px 25px;
   font-size: 12px;
   color: #9B9B9B;
 }
@@ -288,6 +288,10 @@ html {
 
 .review-highlight {
   font-weight: bold;
+}
+
+.reviews-list:nth-child(even) {
+    background-color: #CCC;
 }
 
 #scriptBox {
