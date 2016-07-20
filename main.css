@@ -144,6 +144,13 @@ html {
   justify-content: center;
 }
 
+#review-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 130px;
+}
+
 .lower {
   display: flex;
   justify-content: center;
@@ -163,4 +170,12 @@ html {
 
 #add-on {
   margin-top: 20px !important;
+}
+
+.flare {
+  cursor: pointer;
+}
+
+#pokemon {
+  margin-top: 20px;
 }

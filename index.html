@@ -11,31 +11,11 @@
       h {
         color: red;
       }
-
-      .loader {
-        border: 16px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 16px solid #3498db;
-        width: 120px;
-        height: 120px;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-      }
-
-      @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
     </style>
 
 </head>
 <body>
-    <h1>GoDaddy</h1>
+    <h1>SocialWizard</h1>
     <div class="grid">
 	    <div id="upper" class="row cells12">
         <div id="hero" class="cell colspan10" style="background-image:url('img/background_morning.jpg');">
@@ -50,7 +30,8 @@
 	    		<div class="tile-container">
             <!-- flare -->
 		    		<div class="cell">
-			        	<div class="tile square" data-role="tile" id="addbtn">Flare</div>
+			        	<!-- <div class="tile square flare" data-role="tile" id="addbtn">Flare</div> -->
+                <img src="img/flare_icon.svg" class="flare"/>
                 <!-- The Modal -->
                 <div id="plusModal" class="modal">
                   <!-- Modal content -->
@@ -71,7 +52,8 @@
 			        </div>
               <!-- pokemon go -->
 			        <div class="cell">
-			        	<div id="add-on" class="tile square" data-role="tile">Pokeman go</div>
+			        	<!-- <div id="add-on" class="tile square" data-role="tile">Pokeman go</div> -->
+                <img src="img/pokemon_icon.png" id="pokemon"/>
 			        </div>
 	    		</div>
 	    	</div>
@@ -80,19 +62,16 @@
 						<div class="tile-content">
 							<div class="live-slide">
 								<div id="latest-reviews">
-                  <div id="review-loader" class="loader"></div>
+                  <div id="review-loader">
+                    <div><span class="mif-spinner2 mif-ani-pulse mif-1x"></span></div>
+                  </div>
 								</div>
 
 								<span class="tile-label">Latest social comments</span>
 								<span class="tile-badge">5</span>
 							</div>
 							<div class="live-slide">
-								<div>
-									Crisis reviews 1
-								</div>
-								<div>
-									Crisis reviews 2
-								</div>
+                <div id="crisis-reviews"></div>
 							</div>
 						</div>
 					</div>
