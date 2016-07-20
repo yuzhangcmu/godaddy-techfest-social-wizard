@@ -241,7 +241,7 @@ html {
 
 .flare {
   cursor: pointer;
-  opacity: .9;
+  /*opacity: .9;*/
   transition: all .2s ease;
 }
 
@@ -250,13 +250,14 @@ html {
 }
 
 .flare:hover {
-  opacity: 1;
+  /*opacity: 1;*/
+  outline: none;
 }
 
 #pokemon {
   margin-top: 20px;
   cursor: pointer;
-  opacity: .9;
+  /*opacity: .9;*/
   transition: all .2s ease;
 
   width: 157px !important;
@@ -266,7 +267,7 @@ html {
 }
 
 #pokemon:hover {
-  opacity: 1;
+  /*opacity: 1;*/
   outline: none !important;
 }
 
