@@ -1,17 +1,12 @@
-var x = 0;
+var numTodo = 0;
 var porkManUrl;
-
 $( document ).ready(function() {
   console.log( 'ready!' );
-
   localStorage.clear();
-
   $("#scriptBox").keypress(myFunction);
-
   $.ajax( {
     type:'Get',
     dataType: 'json',
-
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
     success:function(data) {
       console.log(data);
@@ -19,57 +14,44 @@ $( document ).ready(function() {
       $('#review-loader').hide();
     }
   });
-
   $.ajax( {
     type:'Get',
     dataType: 'json',
-
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
-
       console.log("business info");
       console.log(data.data);
-
       console.log('latitde:');
       var latitude = data.data.location.coordinate.latitude;
       var longitude = data.data.location.coordinate.longitude;
       console.log(data.data.location.coordinate.latitude);
       console.log(data.data.location.coordinate.longitude);
       console.log('longti:');
-
       porkManUrl = "https://pokevision.com/#/@";
       porkManUrl += latitude + ",";
       porkManUrl += longitude;
       console.log(porkManUrl);
-
       $('#pokemen-link').attr("href", porkManUrl);
     }
   });
-
-
   //pop up window when click on the plus button
   //popUpWindow('plusModal', 'addbtn', 0);
   //popUpWindow('add_social_media_modal', 'to-add', 1);
   //closeWindow('plusModal', 'add_social_media_modal');
-
   showTime();
-
-  // attachWidgetPicture();
+  //attachWidgetPicture();
   attachSocialMediaPicture();
   todoStatusSwitch();
-
   setInterval(loadNewReview, 5000);
   setInterval(showTime, 60000);
 });
-
 function loadNewReview() {
   //var d = new Date();
   //document.getElementById("demo").innerHTML = d.toLocaleTimeString();
   $.ajax( {
     type:'Get',
     dataType: 'json',
-
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/lastreview',
     success:function(data) {
       console.log(data);
@@ -80,7 +62,6 @@ function loadNewReview() {
     }
   });
 }
-
 function showTime(){
   var date = new Date;
   var minute = date.getMinutes();
@@ -94,25 +75,19 @@ function showTime(){
   timestr = hour + ':' + minute;
   document.getElementById('herotime').innerHTML = timestr;
 }
-
 function parseData(jsonData) {
   const data = jsonData.data;
-
   if (!data) {
     return;
   }
-
   for (var i = 0; i < data.length; i++) {
     var review = data[i];
     appendReview(review);
   }
 }
-
 function appendReview(review) {
   console.log('appendReview:');
   console.log(review);
-
-
   if(review.avatarLink.indexOf('default_avatars/user_60_square.png') > -1){
     var nameInitial = review.author.charAt(0).toUpperCase();
     var color = '#' + intToRGB(hashCode(review.author))
@@ -125,9 +100,7 @@ function appendReview(review) {
     pic.setAttribute("src", 'http://' + review.avatarLink);
     pic.setAttribute("class", "profile-pic");
   }
-
   var className = 'review-content';
-
   if (isNegtiveReview(review)) {
     className += ' review-highlight';
     console.log('get a bad review');
@@ -136,29 +109,23 @@ function appendReview(review) {
     console.log(badReviewNum);
     document.getElementById('review-tile-badge').innerText = badReviewNum + 1;
   }
-
   var content = $('<div/>', {
     class: className,
     html: null
   });
-
   var line1 = $('<div/>', {
     class: 'review-line1',
     html: avatarDiv || pic
   });
-
   var reviewAuthor = document.createElement("span");
   reviewAuthor.innerHTML = review.author;
   reviewAuthor.setAttribute("class", 'review-author');
-
   var reviewComment = document.createElement("div");
   reviewComment.innerHTML = review.comment;
   reviewComment.setAttribute("class", 'review-comment');
   reviewComment.setAttribute("id", review.commentId);
-
   line1.append(avatarDiv || pic);
   line1.append(reviewAuthor);
-
   if (isNegtiveReview(review)) {
     var replyButton = document.createElement("button");
     replyButton.innerHTML = 'respond';
@@ -171,27 +138,20 @@ function appendReview(review) {
         '_blank' // <- This is what makes it open in a new window.
       );
     };
-
     reviewComment.appendChild(replyButton);
   }
-
   content.append(line1);
   content.append(reviewComment);
-
-
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
     html: content
   });
-
   //reviewComment.addEventListener('click', function(event) {
   //  alert( "Handler for .click() called." + event.target.id );
   //  console.log(event.target);
   //});
-
   $("#latest-reviews-content").append(htmlContent);
 }
-
 function hashCode(str) {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
@@ -199,19 +159,15 @@ function hashCode(str) {
     }
     return hash;
 }
-
 function intToRGB(i){
     var c = (i & 0x00FFFFFF)
         .toString(16)
         .toUpperCase();
-
     return "00000".substring(0, 6 - c.length) + c;
 }
-
 function isNegtiveReview(review) {
   return review.rating <= 2 || review.score <= -0.1;
 }
-
 function popUpWindow(modalId, buttonId, index) {
   // Get the modal
   var modal = document.getElementById(modalId);
@@ -228,12 +184,10 @@ function popUpWindow(modalId, buttonId, index) {
     modal.style.display = "none";
   }
 }
-
 // When the user clicks anywhere outside of the modal, close it
 function closeWindow(modalId, modalId2) {
   var modal = document.getElementById(modalId);
   var modal2 = document.getElementById(modalId2);
-
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -243,21 +197,16 @@ function closeWindow(modalId, modalId2) {
     }
   }
 }
-
-
 function attachWidgetPicture() {
   var flareBtn = document.getElementById('addFlareBtn');
   var btn = document.getElementById("addbtn");
-
   flareBtn.onclick = function() {
-
     //disable the addBtn
     btn.onclick = function() {
         return false;
     };
     $("#addbtn").css('background-image', 'url(2-az.jpg)');
   };
-
   var weiboBtn = document.getElementById('addWeiboBtn');
   weiboBtn.onclick = function() {
     btn.onclick = function() {
@@ -266,22 +215,17 @@ function attachWidgetPicture() {
     $("#addbtn").css('background-image', 'url(3-az.jpg)');
   }
 }
-
 function attachSocialMediaPicture() {
   var googleBtn = document.getElementById('addGooglePlusBtn');
   var btn = document.getElementById("to-add");
-
   googleBtn.onclick = function() {
-
     //disable the addBtn
     btn.onclick = function() {
       return false;
     };
-
     $("#to-add").css('background-image', 'url(2-az.jpg)');
   }
 }
-
 function deep_loop()
 {
   var ul = document.getElementById("myList");
@@ -291,7 +235,7 @@ function deep_loop()
     //var flag = key.search("-");
     var node = document.createElement("LI");
     var spannode = document.createElement("span");
-    spannode.innerHTML = localStorage[key];
+    spannode.innerHTML = JSON.parse(localStorage[key]).value;
     //if(flag >= 0)
     //{node.appendChild("<h1>"+textnode+"</h1>");}
     //else
@@ -299,47 +243,54 @@ function deep_loop()
       var checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
       checkbox.setAttribute('class', 'todo-checkbox');
+      checkbox.setAttribute('tab', key);
+      if(JSON.parse(localStorage[key]).completed) {
+        checkbox.setAttribute('checked', 'checked');
+        spannode.classList.add("completed");
+      }
       node.appendChild(checkbox);
       node.appendChild(spannode);
     //}
-    node.id = key;
-
+    node.id = 'li' + key;
     var btn = document.createElement("BUTTON");
-    btn.id = key;
+    btn.setAttribute('tab', key);
     btn.setAttribute('class', 'button cycle-button');
     btn.innerHTML = "x";
-    (function(index){
-      btn.onclick = function(){
-        //var textnode1 = document.createTextNode(localStorage[index]);
-        localStorage.removeItem(index);
-        //localStorage.setItem("-" + index, textnode1);
-        deep_loop();
-      };
-    })(key);
     node.appendChild(btn);
     document.getElementById("myList").appendChild(node);
   }
 }
-
 function todoStatusSwitch(){
-  $(document).on('click', '.todo-checkbox', function(){
+  $(document).on('click', '.todo-checkbox', function(event){
     var spannode = $(this).next('span');
+    var index = $(this).attr('tab');
+    var todoTmp = JSON.parse(localStorage[index]);
     if(spannode.hasClass('completed')){
       spannode.removeClass('completed');
+      todoTmp['completed'] = false;
     }
     else{
       spannode.addClass('completed');
+      todoTmp['completed'] = true;
     }
+    localStorage.setItem(index, JSON.stringify(todoTmp));
+  });
+  $(document).on('click', '.cycle-button', function(event){
+    var index = $(this).attr('tab');
+    localStorage.removeItem(index);
+    deep_loop();
   });
 }
-
 function myFunction(e)
 {
   if (e.keyCode == 13)
   {
     var tb = document.getElementById("scriptBox");
-    localStorage.setItem(x.toString(), tb.value);
-    x++;
+    localStorage.setItem(numTodo.toString(), JSON.stringify({
+      value: tb.value,
+      completed: false
+    }));
+    numTodo++;
     document.getElementById("scriptBox").value = '';
     deep_loop();
   }
