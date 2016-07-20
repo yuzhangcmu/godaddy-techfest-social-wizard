@@ -12,12 +12,12 @@
 <body>
     <h1>GoDaddy</h1>
     <div class="grid">
-	    <div class="row cells12">
-        <div class="cell colspan10">
+	    <div id="upper" class="row cells12">
+        <div id="hero" class="cell colspan10">
           <img src="resources/background/2-az.jpg" data-role="fitImage" data-format="square">
         </div>
         <div class="cell">
-          <div class="tile tile-big-y" data-role="tile">To dos</div>
+          <div id="to-dos" class="tile" data-role="tile">To dos</div>
         </div>
 	    </div>
 	    <div class="row cells12">
@@ -53,12 +53,6 @@
 						<div class="tile-content slide-right">
 							<div class="slide">
 								<div id="latest-reviews">
-									<div>
-										review 1
-									</div>
-									<div>
-										review 2
-									</div>
 								</div>
 
 								<span class="tile-label">Latest social comments</span>
@@ -77,7 +71,7 @@
 	    	</div>
 	    	<div class="cell colspan6">
     			<div class="tile-container">
-						<div class="tile">
+						<div class="tile square">
 							Email
 						</div>
 						<div id="facebook-num" class="tile tile-small-x social-num">
@@ -119,7 +113,7 @@
               </div>
             </div>
 
-    				<div class="tile tile-big-x">
+    				<div id="pro-tips" class="tile tile-big-x">
 	        		<div class="tile-content slide-right">
 	        			<div class="carousel" data-role="carousel">
 	        				<div class="slide">
@@ -140,7 +134,7 @@
 						            <div class="image-overlay">
 						                Welcome to AZ
 						            </div>
-							    </div>
+							      </div>
 	        				</div>
 	        				<div class="slide">
 		        				<div class="image-container">
