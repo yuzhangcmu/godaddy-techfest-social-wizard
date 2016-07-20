@@ -2,7 +2,7 @@ var numTodo = 0;
 var porkManUrl;
 $( document ).ready(function() {
   console.log( 'ready!' );
-  localStorage.clear();
+  //localStorage.clear();
   $("#scriptBox").keypress(myFunction);
   $.ajax( {
     type:'Get',
@@ -45,6 +45,11 @@ $( document ).ready(function() {
   todoStatusSwitch();
   setInterval(loadNewReview, 5000);
   setInterval(showTime, 60000);
+  //load to-dos
+  if(localStorage["numTodo"]) {
+    numTodo = localStorage["numTodo"];
+  }
+  deep_loop();
 });
 function loadNewReview() {
   //var d = new Date();
@@ -232,6 +237,7 @@ function deep_loop()
   ul.innerHTML = '';
   for (var key in localStorage)
   {
+    if(key*1 != key) continue;
     //var flag = key.search("-");
     var node = document.createElement("LI");
     var spannode = document.createElement("span");
@@ -291,6 +297,7 @@ function myFunction(e)
       completed: false
     }));
     numTodo++;
+    localStorage.setItem("numTodo", numTodo);
     document.getElementById("scriptBox").value = '';
     deep_loop();
   }
