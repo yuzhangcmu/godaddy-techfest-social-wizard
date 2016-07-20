@@ -116,16 +116,18 @@ html {
   width: 875px;
   height: 351px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-size:cover;
+  background-size: cover;
+  background-image: url('img/background_morning.png');
 }
 
 #herotime{
   color: white;
   font-weight: bold;
-  font-size:88px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size:100px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #to-dos {
@@ -155,10 +157,22 @@ html {
   overflow: scroll;
 }
 
+.review-avatar {
+  width: 22px;
+  height:22px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+  font-size:10px;
+  font-weight: bold;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .lower {
   display: flex;
   justify-content: center;
-  padding-left: 60px;
+  padding-left: 70px;
 }
 
 #live-slide {
@@ -184,13 +198,10 @@ html {
   margin-top: 20px;
 }
 
-.blur {
-  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
-
-  -webkit-filter: blur(10px); /* Chrome, Opera */
-  -moz-filter: blur(10px);
-  -ms-filter: blur(10px);
-  filter: blur(10px);
-
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+.greeting {
+  color: white;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  margin: 0;
 }
