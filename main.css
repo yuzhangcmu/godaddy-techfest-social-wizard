@@ -5,3 +5,88 @@ html {
       -o-background-size: cover;
       background-size: cover;
     }
+
+#facebook-num, #twitter-num, #yelp-num, #to-add {
+  width: 85px;
+  height: 165px;
+  box-shadow: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#facebook-num {
+  margin-left: 20px;
+  background-color: rgba(54, 88, 153, .6);
+}
+
+#facebook-num:hover {
+  background-color: #3B5998;
+  outline: none;
+}
+
+#twitter-num {
+  background-color: rgba(29, 161, 242, .6);
+}
+
+#twitter-num:hover {
+  background-color: #1DA1F2;
+  outline: none;
+}
+
+#yelp-num {
+  background-color: rgba(169, 18, 0, .6);
+}
+
+#yelp-num:hover {
+  background-color: #C41200;
+  outline: none;
+}
+
+#to-add {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#to-add:hover {
+  background-color: rgba(0, 0, 0, .7);
+  /*color: #000;*/
+  outline: none;
+}
+
+.social-num {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-size: 12px;
+  font-family: "open sans";
+  font-weight: lighter;
+  padding: 20px 10px 5px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+}
+
+.facebook-icon {
+  -webkit-mask-image: url('img/facebook_icon.svg');
+  mask-image: url('img/facebook_icon.svg');
+}
+
+.twitter-icon {
+  -webkit-mask-image: url('img/twitter_icon.svg');
+  mask-image: url('img/twitter_icon.svg');
+}
+
+.yelp-icon {
+  -webkit-mask-image: url('img/yelp_icon.svg');
+  mask-image: url('img/yelp_icon.svg');
+
+}
+
+.add-icon {
+  -webkit-mask-image: url('img/add_icon.svg');
+  mask-image: url('img/add_icon.svg');
+}
