@@ -23,16 +23,19 @@ $( document ).ready(function() {
     }
   });
 
+
   //pop up window when click on the plus button
   //popUpWindow('plusModal', 'addbtn', 0);
   //popUpWindow('add_social_media_modal', 'to-add', 1);
   //closeWindow('plusModal', 'add_social_media_modal');
 
   showTime();
+
   attachWidgetPicture();
   attachSocialMediaPicture();
 
   setInterval(loadNewReview, 5000);
+  setInterval(showTime, 60000);
 });
 
 function loadNewReview() {
@@ -94,21 +97,12 @@ function appendReview(review) {
     avatarDiv.innerHTML = nameInitial;
     avatarDiv.setAttribute('class', 'review-avatar');
     avatarDiv.setAttribute('style', 'background-color:' + color);
-  }
-  else{
+  } else {
     var pic = document.createElement("IMG");
     pic.setAttribute("src", 'http://' + review.avatarLink);
-    pic.setAttribute("height", "22");
-    pic.setAttribute("width", "22");
     pic.setAttribute("class", "profile-pic");
-  } 
+  }
 
-  var content = $('<div/>', {
-    //id: review.commentId,
-    html: avatarDiv || pic
-  });
-
-  var reviewContent = document.createElement("span");
   var className = 'review-content';
 
   if (isNegtiveReview(review)) {
@@ -116,7 +110,15 @@ function appendReview(review) {
     console.log('get a bad review');
   }
 
-  reviewContent.setAttribute("class", className);
+  var content = $('<div/>', {
+    class: className,
+    html: null
+  });
+
+  var line1 = $('<div/>', {
+    class: 'review-line1',
+    html: avatarDiv || pic
+  });
 
   var reviewAuthor = document.createElement("span");
   reviewAuthor.innerHTML = review.author;
@@ -126,10 +128,11 @@ function appendReview(review) {
   reviewComment.innerHTML = review.comment;
   reviewComment.setAttribute("class", 'review-comment');
 
-  reviewContent.appendChild(reviewAuthor);
-  reviewContent.appendChild(reviewComment);
+  line1.append(avatarDiv || pic);
+  line1.append(reviewAuthor);
 
-  content.append(reviewContent);
+  content.append(line1);
+  content.append(reviewComment);
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
