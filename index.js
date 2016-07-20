@@ -20,7 +20,6 @@ $( document ).ready(function() {
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
-      $('#review-loader').hide();
     }
   });
 

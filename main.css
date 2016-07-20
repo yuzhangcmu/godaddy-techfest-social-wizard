@@ -153,10 +153,6 @@ html {
   margin-top: 130px;
 }
 
-#latest-reviews-content {
-  overflow: scroll;
-}
-
 .review-avatar {
   width: 22px;
   height:22px;
