@@ -55,7 +55,7 @@ $( document ).ready(function() {
 
   showTime();
 
-  attachWidgetPicture();
+  // attachWidgetPicture();
   attachSocialMediaPicture();
   todoStatusSwitch();
 

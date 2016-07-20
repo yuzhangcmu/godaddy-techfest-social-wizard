@@ -405,6 +405,10 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 157px !important;
+  height: 165px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
 }
 
 .custom-icon:hover, span.icon:hover {
