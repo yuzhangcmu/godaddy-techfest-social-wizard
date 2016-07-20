@@ -1,16 +1,11 @@
 $( document ).ready(function() {
   console.log( 'ready!' );
 
-  var appendContent = $('<div/>', {
-    className: 'foobar',
-    html: 'review 1'
-  });
-
   $.ajax( {
     type:'Get',
     dataType: 'json',
 
-    url:'http://localhost:3000/api/yelp/techfests-diner-phoenix/reviews',
+    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
     success:function(data) {
       console.log(data);
       parseData(data);
@@ -34,12 +29,11 @@ function parseData(jsonData) {
     var review = data[i];
     appendReview(review);
   }
-
-  console.log( 'end!' );
 }
 
 function appendReview(review) {
-  console.log( 'appendReview!' );
+  console.log('appendReview:');
+  console.log(review);
 
   var pic = document.createElement("IMG");
   pic.setAttribute("src", 'http://' + review.avatarLink);
@@ -48,14 +42,17 @@ function appendReview(review) {
   pic.setAttribute("class", "profile-pic");
 
   var content = $('<div/>', {
-    id: review.commentId,
+    //id: review.commentId,
     html: pic
   });
 
   var reviewContent = document.createElement("span");
   var className = 'review-content';
-  if (review.rating <= 2) {
+
+  console.log(review.score);
+  if (isNegtiveReview(review)) {
     className += ' review-highlight';
+    console.log('get a bad review');
   }
 
   reviewContent.setAttribute("class", className);
@@ -63,14 +60,22 @@ function appendReview(review) {
 
   content.append(reviewContent);
 
-
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
-    id: review.commentId,
+    //id: review.commentId,
     html: content
   });
 
   $("#latest-reviews").append(htmlContent);
+
+  if (isNegtiveReview(review)) {
+    $("#crisis-reviews").append(htmlContent.clone());
+    console.log('add to the crisis reviews');
+  }
+}
+
+function isNegtiveReview(review) {
+  return review.rating <= 2 || review.score <= -0.1;
 }
 
 function popUpWindow(modalId, buttonId, index) {
@@ -83,7 +88,7 @@ function popUpWindow(modalId, buttonId, index) {
   // When the user clicks the button, open the modal
   btn.onclick = function() {
     modal.style.display = "block";
-  }
+  };
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
