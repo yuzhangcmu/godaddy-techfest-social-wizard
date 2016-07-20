@@ -228,7 +228,7 @@ html {
   width: 345px;
   height: 350px;
   box-shadow: none;
-  margin: 0 20px !important;
+  margin: 0 20px 0 16px !important;
 }
 
 #review-tile:hover {
