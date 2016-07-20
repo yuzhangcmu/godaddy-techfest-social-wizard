@@ -29,7 +29,7 @@ $( document ).ready(function() {
   //  error: function(jqXHR, textStatus, errorThrown) { console.log(errorThrown); console.log(textStatus); }
   //});
 
-  const data = '{\"data\":[{\"id\":\"techfests-diner-phoenix\",\"commentId\":\"pW6FLeLXHxjVQEeKiu_D5A\",\"rating\":3,\"date\":\"2016-07-19\",\"comment\":\"Food was great but very small plates, not recommended for groups.\",\"avatarLink\":\"\/\/s3-media3.fl.yelpcdn.com\/assets\/srv0\/yelp_styleguide\/20983a63ea50\/assets\/img\/default_avatars\/user_60_square.png\",\"author\":\"Chelsea Q.\"}]}';
+  const data = '{\r\n  \"data\": [\r\n    {\r\n      \"id\": \"techfests-diner-phoenix\",\r\n      \"commentId\": \"pW6FLeLXHxjVQEeKiu_D5A\",\r\n      \"rating\": 3,\r\n      \"date\": \"2016-07-19\",\r\n      \"comment\": \"Food was great but very small plates, not recommended for groups.\",\r\n      \"avatarLink\": \"\/\/s3-media3.fl.yelpcdn.com\/assets\/srv0\/yelp_styleguide\/20983a63ea50\/assets\/img\/default_avatars\/user_60_square.png\",\r\n      \"author\": \"Chelsea Q.\"\r\n    },\r\n    {\r\n      \"id\": \"techfests-diner-phoenix\",\r\n      \"commentId\": \"pW6FLeLXHxjVQEeKiu_D5B\",\r\n      \"rating\": 1,\r\n      \"date\": \"2016-07-20\",\r\n      \"comment\": \"Food was so bad!\",\r\n      \"avatarLink\": \"\/\/s3-media3.fl.yelpcdn.com\/assets\/srv0\/yelp_styleguide\/20983a63ea50\/assets\/img\/default_avatars\/user_60_square.png\",\r\n      \"author\": \"Creepy.\"\r\n    }\r\n  ]\r\n}';
 
   parseData(data);
 });
@@ -71,9 +71,16 @@ function appendReview(review) {
   });
 
   var reviewContent = document.createElement("span");
-  reviewContent.setAttribute("id", "review-content");
+  var className = 'review-content';
+  if (review.rating <= 2) {
+    className += ' review-highlight';
+  }
 
-  content.append("<span id='review-content'/>" + review.comment + "</span>");
+  reviewContent.setAttribute("class", className);
+  reviewContent.innerHTML = review.comment;
+
+  content.append(reviewContent);
+
 
   const htmlContent = $('<div/>', {
     class: 'reviews-list',
