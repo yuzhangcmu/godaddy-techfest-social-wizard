@@ -331,12 +331,7 @@ html {
 
 }
 
-<<<<<<< Updated upstream
 .news-title-container {
-=======
-.news-title {
-  float: right;
->>>>>>> Stashed changes
   /*float: left;*/
   /*display: inline;*/
   display: flex;
