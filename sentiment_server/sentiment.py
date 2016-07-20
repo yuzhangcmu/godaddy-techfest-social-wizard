@@ -4,6 +4,7 @@ import os, sys, string, unirest, json
 app = Flask(__name__)
 def breakdown(data):
     listline = []
+    
     for d in data.json['data']:
         line = sentiment(d['comment'])
         listline.append(line)
@@ -42,6 +43,9 @@ def build(listline, data):
 
 @app.route('/api/nlp', methods = ['POST'])
 def home():
+    print 'print request'
+    print request.data
+    print 'after print'
     listline = breakdown(request)
     res = build(listline, request)
     return jsonify({'data': res.json['data']})
