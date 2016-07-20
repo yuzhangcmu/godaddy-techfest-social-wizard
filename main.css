@@ -220,6 +220,11 @@ html {
   margin: 0;
 }
 
+.review-author {
+  margin-left: 5px;
+  color: black;
+}
+
 .profile-pic {
   width: 32px;
   height: 32px;
@@ -228,12 +233,27 @@ html {
   justify-content: center;
 }
 
-.review-content {
+#latest-reviews-content {
+  overflow-x: hidden;
+  float: left;
+  height: 310px;
+  overflow: auto;
+  padding-top: 12px;
+  background-color: rgba(255, 255, 255, .2);
+}
 
+.review-content {
+  padding: 15px 25px 0 25px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+
+.review-comment {
+  margin-top: 5px;
 }
 
 .review-highlight {
-  color: pink;
+  /*color: pink;*/
 }
 
 #scriptBox {
@@ -260,4 +280,8 @@ html {
 
 .news-title {
   display: inline;
+}
+
+.bottom-label {
+  margin-left: 10px;
 }
