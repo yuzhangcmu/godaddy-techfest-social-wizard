@@ -45,11 +45,12 @@
           <div id="to-dos" class="tile" data-role="tile">To dos</div>
         </div>
 	    </div>
-	    <div class="row cells12">
-	    	<div class="cell colspan2">
+	    <div class="lower">
+	    	<div class="lower-left">
 	    		<div class="tile-container">
+            <!-- flare -->
 		    		<div class="cell">
-			        	<div class="tile" data-role="tile" id="addbtn">Flare</div>
+			        	<div class="tile square" data-role="tile" id="addbtn">Flare</div>
                 <!-- The Modal -->
                 <div id="plusModal" class="modal">
                   <!-- Modal content -->
@@ -68,13 +69,14 @@
                   </div>
                 </div>
 			        </div>
+              <!-- pokemon go -->
 			        <div class="cell">
-			        	<div class="tile" data-role="tile">Pokeman go</div>
+			        	<div id="add-on" class="tile square" data-role="tile">Pokeman go</div>
 			        </div>
 	    		</div>
 	    	</div>
-	    	<div class="cell colspan4">
-	    		<div class="tile tile-wide tile-wide-y" data-role="tile" data-effect="slideLeftRight">
+	    	<div class="lower-middle">
+	    		<div id="live-slide" class="tile tile-wide tile-wide-y" data-role="tile" data-effect="slideLeftRight">
 						<div class="tile-content">
 							<div class="live-slide">
 								<div id="latest-reviews">
@@ -95,21 +97,21 @@
 						</div>
 					</div>
 	    	</div>
-	    	<div class="cell colspan6">
+	    	<div class="lower-right">
     			<div class="tile-container">
+            <div class="bottom-right-up">
+            <!-- email -->
 						<div class="tile square bg-darkBlue fg-white" data-role="tile" onclick="document.location.href='https://www.microsoft.com/en-us/outlook-com/'">
 							<div class="tile-content iconic">
 								<span class="icon mif-envelop"></span>
 							</div>
 							<span class="tile-label">Inbox</span>
 						</div>
-
+            <!-- social numbers -->
 						<div id="facebook-num" class="tile tile-small-x social-num">
-              <!-- <div class="tile-content iconic social-num"> -->
                 <div>6459</div>
                 <div>Followers</div>
                 <span class="custom-icon facebook-icon"></span>
-              <!-- </div> -->
 						</div>
 						<div id="twitter-num" class="tile tile-small-x social-num">
               <div>755</div>
@@ -126,23 +128,8 @@
               <div>Another</div>
               <span class="custom-icon add-icon"></span>
               </div>
-            <!-- The Modal -->
-            <div id="add_social_media_modal" class="modal">
-              <!-- Modal content -->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <span class="close">x</span>
-                  <h2>Modal Header</h2>
-                </div>
-                <div class="modal-body">
-                  <button id="addGooglePlusBtn">google+</button>
-                </div>
-                <div class="modal-footer">
-                  <h3>Modal Footer</h3>
-                </div>
-              </div>
             </div>
-
+            <!-- pro tips -->
     				<div id="pro-tips" class="tile tile-big-x">
 	        		<div class="tile-content">
 	        			<div class="carousel" data-role="carousel">
@@ -186,5 +173,21 @@
 	    	</div>
 	    </div>
 	</div>
+  <!-- The Modal -->
+  <div id="add_social_media_modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">x</span>
+        <h2>Modal Header</h2>
+      </div>
+      <div class="modal-body">
+        <button id="addGooglePlusBtn">google+</button>
+      </div>
+      <div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
