@@ -290,9 +290,9 @@ html {
   font-weight: bold;
 }
 
-.reviews-list:nth-child(even) {
+/*.reviews-list:nth-child(even) {
     background-color: #CCC;
-}
+}*/
 
 #scriptBox {
   width: 80%;
@@ -333,7 +333,6 @@ html {
   color: white;
 }
 
-<<<<<<< HEAD
 .reply-btn {
   background: transparent;
   color: red;
@@ -343,8 +342,8 @@ html {
   opacity: .7;
   margin-right: 20px;
   margin-top: 5px;
-  padding-left: 12px;
-  padding-right: 12px;
+  /*padding-left: 12px;
+  padding-right: 12px;*/
 }
 
 .reply-btn:hover {
@@ -352,7 +351,7 @@ html {
   background-color: red;
   color: white;
 }
-=======
+
 .custom-icon:hover, span.icon:hover {
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;

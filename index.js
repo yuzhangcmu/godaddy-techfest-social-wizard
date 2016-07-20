@@ -143,7 +143,7 @@ function appendReview(review) {
 
   if (isNegtiveReview(review)) {
     var replyButton = document.createElement("button");
-    replyButton.innerHTML = 'reply';
+    replyButton.innerHTML = 'respond';
     replyButton.style.float = 'right';
     replyButton.setAttribute("class", 'reply-btn');
     replyButton.setAttribute('target', '_blank');
