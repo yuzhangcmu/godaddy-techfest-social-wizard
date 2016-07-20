@@ -97,12 +97,9 @@ function appendReview(review) {
     avatarDiv.innerHTML = nameInitial;
     avatarDiv.setAttribute('class', 'review-avatar');
     avatarDiv.setAttribute('style', 'background-color:' + color);
-  }
-  else{
+  } else {
     var pic = document.createElement("IMG");
     pic.setAttribute("src", 'http://' + review.avatarLink);
-    pic.setAttribute("height", "22");
-    pic.setAttribute("width", "22");
     pic.setAttribute("class", "profile-pic");
   }
 
@@ -119,9 +116,10 @@ function appendReview(review) {
   });
 
   var line1 = $('<div/>', {
+    class: 'review-line1',
     html: avatarDiv || pic
   });
-  
+
   var reviewAuthor = document.createElement("span");
   reviewAuthor.innerHTML = review.author;
   reviewAuthor.setAttribute("class", 'review-author');
