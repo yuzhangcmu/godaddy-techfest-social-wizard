@@ -188,6 +188,7 @@ html {
 #upper {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 
 #review-loader {
