@@ -188,14 +188,15 @@ html {
   padding-left: 70px;
 }
 
-#live-slide {
+#review-tile {
+  background-color: rgba(255, 255, 255, .2);
   width: 345px;
   height: 350px;
   box-shadow: none;
   margin: 0 20px !important;
 }
 
-#live-slide:hover {
+#review-tile:hover {
   outline: none;
 }
 
