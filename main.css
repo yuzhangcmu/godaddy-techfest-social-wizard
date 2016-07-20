@@ -328,10 +328,15 @@ html {
 .news-image {
   max-width: 56%;
   display: inline!important;
-  float: left;
+
 }
 
+<<<<<<< Updated upstream
 .news-title-container {
+=======
+.news-title {
+  float: right;
+>>>>>>> Stashed changes
   /*float: left;*/
   /*display: inline;*/
   display: flex;
@@ -386,6 +391,13 @@ html {
 .carousel-switch-prev {
   font-size: 35px !important;
   margin-left: 10px !important;
+}
+
+#flare-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .custom-icon:hover, span.icon:hover {
