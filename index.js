@@ -111,14 +111,23 @@ function appendReview(review) {
   var reviewContent = document.createElement("span");
   var className = 'review-content';
 
-  console.log(review.score);
   if (isNegtiveReview(review)) {
     className += ' review-highlight';
     console.log('get a bad review');
   }
 
   reviewContent.setAttribute("class", className);
-  reviewContent.innerHTML = review.author + ': ' + review.comment;
+
+  var reviewAuthor = document.createElement("span");
+  reviewAuthor.innerHTML = review.author;
+  reviewAuthor.setAttribute("class", 'review-author');
+
+  var reviewComment = document.createElement("div");
+  reviewComment.innerHTML = review.comment;
+  reviewComment.setAttribute("class", 'review-comment');
+
+  reviewContent.appendChild(reviewAuthor);
+  reviewContent.appendChild(reviewComment);
 
   content.append(reviewContent);
 
