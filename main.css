@@ -220,7 +220,7 @@ html {
 .lower {
   display: flex;
   justify-content: center;
-  padding-left: 70px;
+  padding-left: 60px;
 }
 
 #review-tile {
