@@ -9,7 +9,7 @@ $( document ).ready(function() {
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
+    url:'http://10.32.56.74:3000/api/yelp/techfests-diner-phoenix/reviews',
     success:function(data) {
       console.log(data);
       parseData(data);
