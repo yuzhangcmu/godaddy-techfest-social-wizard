@@ -15,4 +15,4 @@ simplehttpserver ./
 ```
 
 ## How to run it without termination in openstack
-nohup `simplehttpserver` &
+nohup simplehttpserver ../ &
