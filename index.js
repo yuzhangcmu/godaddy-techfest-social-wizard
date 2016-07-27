@@ -9,8 +9,8 @@ $( document ).ready(function() {
     dataType: 'json',
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
     success:function(data) {
-      console.log(data);
-      parseData(data);
+      //console.log(data);
+      parseData(data, false);
       $('#review-loader').hide();
     }
   });
@@ -20,18 +20,18 @@ $( document ).ready(function() {
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
-      console.log("business info");
-      console.log(data.data);
-      console.log('latitde:');
+      //console.log("business info");
+      //console.log(data.data);
+      //console.log('latitde:');
       var latitude = data.data.location.coordinate.latitude;
       var longitude = data.data.location.coordinate.longitude;
-      console.log(data.data.location.coordinate.latitude);
-      console.log(data.data.location.coordinate.longitude);
-      console.log('longti:');
+      //console.log(data.data.location.coordinate.latitude);
+      //console.log(data.data.location.coordinate.longitude);
+      //console.log('longti:');
       porkManUrl = "https://pokevision.com/#/@";
       porkManUrl += latitude + ",";
       porkManUrl += longitude;
-      console.log(porkManUrl);
+      //console.log(porkManUrl);
       $('#pokemen-link').attr("href", porkManUrl);
     }
   });
@@ -59,11 +59,14 @@ function loadNewReview() {
     dataType: 'json',
     url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/lastreview',
     success:function(data) {
-      console.log(data);
-      parseData(data);
+      //console.log(data);
+      parseData(data, true);
       //$('#review-loader').hide();
-      console.log('Get new review:');
-      console.log(data);
+      
+      if(data.data) {
+        console.log(data.data);
+        console.log('Get new review:');
+      }
     }
   });
 }
@@ -80,19 +83,19 @@ function showTime(){
   timestr = hour + ':' + minute;
   document.getElementById('herotime').innerHTML = timestr;
 }
-function parseData(jsonData) {
+function parseData(jsonData, inverse) {
   const data = jsonData.data;
   if (!data) {
     return;
   }
   for (var i = 0; i < data.length; i++) {
     var review = data[i];
-    appendReview(review);
+    appendReview(review, inverse);
   }
 }
-function appendReview(review) {
-  console.log('appendReview:');
-  console.log(review);
+function appendReview(review, inverse) {
+  //console.log('appendReview:');
+  //console.log(review);
   if(review.avatarLink.indexOf('default_avatars/user_60_square.png') > -1){
     var nameInitial = review.author.charAt(0).toUpperCase();
     var color = '#' + intToRGB(hashCode(review.author))
@@ -108,10 +111,10 @@ function appendReview(review) {
   var className = 'review-content';
   if (isNegtiveReview(review)) {
     className += ' review-highlight';
-    console.log('get a bad review');
+    //console.log('get a bad review');
     var badReviewNum = parseInt(document.getElementById('review-tile-badge').innerText);
-    console.log('bad reviews number');
-    console.log(badReviewNum);
+    //console.log('bad reviews number');
+    //console.log(badReviewNum);
     document.getElementById('review-tile-badge').innerText = badReviewNum + 1;
   }
   var content = $('<div/>', {
@@ -155,7 +158,12 @@ function appendReview(review) {
   //  alert( "Handler for .click() called." + event.target.id );
   //  console.log(event.target);
   //});
-  $("#latest-reviews-content").append(htmlContent);
+  if(inverse) {
+    $("#latest-reviews-content").prepend(htmlContent);
+  } else {
+    $("#latest-reviews-content").append(htmlContent);
+  }
+
 }
 function hashCode(str) {
     var hash = 0;
