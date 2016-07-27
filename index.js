@@ -1,15 +1,17 @@
 var numTodo = 0;
 var porkManUrl;
+
+const yelpAPI = "http://10.32.56.74:3000/api/yelp/techfests-diner-phoenix/";
+
 $( document ).ready(function() {
   console.log( 'ready!' );
 
-  blur();
   //localStorage.clear();
   $("#scriptBox").keypress(myFunction);
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://10.32.56.74:3000/api/yelp/techfests-diner-phoenix/reviews',
+    url: yelpAPI + 'reviews',
     success:function(data) {
       console.log(data);
       parseData(data);
@@ -19,7 +21,7 @@ $( document ).ready(function() {
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
+    url: yelpAPI + 'info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
       console.log("business info");
@@ -54,37 +56,13 @@ $( document ).ready(function() {
   deep_loop();
 });
 
-function blue() {
-  //var content = document.querySelector('.content');
-  //var duplicate = content.cloneNode(true);
-  //var contentBlurred = document.createElement('div');
-  //contentBlurred.className = 'content-blurred';
-  //contentBlurred.appendChild(duplicate);
-  //
-  //var header = document.querySelector('header');
-  //header.appendChild(contentBlurred);
-  //
-  //var contentWrapper = document.querySelector('.content-wrapper'),
-  //  translation;
-  //
-  //contentWrapper.addEventListener('scroll',function(){
-  //  translation = 'translate3d(0,' + (-this.scrollTop + 'px') + ',0)';
-  //  duplicate.style['-webkit-transform'] = translation;
-  //  duplicate.style['-moz-transform'] = translation;
-  //  duplicate.style['transform'] = translation;
-  //});
-  //
-  //// offset to demo blurring
-  //contentWrapper.scrollTop = 140;
-}
-
 function loadNewReview() {
   //var d = new Date();
   //document.getElementById("demo").innerHTML = d.toLocaleTimeString();
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/lastreview',
+    url: yelpAPI + 'lastreview',
     success:function(data) {
       console.log(data);
       parseData(data);
