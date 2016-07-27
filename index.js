@@ -1,13 +1,17 @@
 var numTodo = 0;
 var porkManUrl;
+
+const yelpAPI = "http://10.32.56.74:3000/api/yelp/techfests-diner-phoenix/";
+
 $( document ).ready(function() {
   console.log( 'ready!' );
+
   //localStorage.clear();
   $("#scriptBox").keypress(myFunction);
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/reviews',
+    url: yelpAPI + 'reviews',
     success:function(data) {
       //console.log(data);
       parseData(data, false);
@@ -17,7 +21,7 @@ $( document ).ready(function() {
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/info',
+    url: yelpAPI + 'info',
     success:function(data) {
       document.getElementById('yelp-num-value').innerText = data.data.review_count;
       //console.log("business info");
@@ -51,13 +55,14 @@ $( document ).ready(function() {
   }
   deep_loop();
 });
+
 function loadNewReview() {
   //var d = new Date();
   //document.getElementById("demo").innerHTML = d.toLocaleTimeString();
   $.ajax( {
     type:'Get',
     dataType: 'json',
-    url:'http://52.41.200.245:3000/api/yelp/techfests-diner-phoenix/lastreview',
+    url: yelpAPI + 'lastreview',
     success:function(data) {
       //console.log(data);
       parseData(data, true);
